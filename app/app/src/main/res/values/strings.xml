@@ -3,4 +3,15 @@
     <string name="access_token" translatable="false">pk.eyJ1IjoiYWluaG9hc2FudHgiLCJhIjoiY2pjdXMxeDNsMDcwZzJ3czZhMGRpZ2xubiJ9.G3GTG00jwyegbkNuxa17aA</string>
     <string name="server_send_token">localhost:3000/auth</string>
     <string name="server_client_id">32419272019-v148qagtlm6ucjodqfhbq4287sdmvhhq.apps.googleusercontent.com</string>
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="signed_in">Signed in</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="signed_out">Signed out</string>
+    <string name="signed_in_err">"Error: please check logs."</string>
+    <string name="error_null_person">
+        Error: Plus.PeopleApi.getCurrentPerson returned null. Ensure that the Google+ API is
+        enabled for your project, you have a properly configured google-services.json file
+        and that your device has an internet connection.
+    </string>
+>>>>>>> bf79853be75409038a363a8edf261bd6ba534c9b
 </resources>
