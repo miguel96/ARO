@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">app</string>
     <string name="access_token" translatable="false">pk.eyJ1IjoiYWluaG9hc2FudHgiLCJhIjoiY2pjdXMxeDNsMDcwZzJ3czZhMGRpZ2xubiJ9.G3GTG00jwyegbkNuxa17aA</string>
+    <string name="server_send_token">localhost:3000/auth</string>
+    <string name="server_client_id">32419272019-v148qagtlm6ucjodqfhbq4287sdmvhhq.apps.googleusercontent.com</string>
 </resources>

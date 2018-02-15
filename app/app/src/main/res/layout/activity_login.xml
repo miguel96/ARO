@@ -16,16 +16,15 @@
         android:text="PANTALLA DE LOGIN\nAquí ira el logo de la app etc. y abajo, donde el botón, la opcion de login. Ahora el botón nos lleva a la siguiente Activity que será el menú de historias: una lista con las historias disponibles (se puede quitar si solo creamos una historia)"
          />
 
-    <Button
-        android:id="@+id/btnToHistorias"
-        android:layout_width="300px"
-        android:layout_height="200px"
-        android:layout_alignParentBottom="true"
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPruebaLogin"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="26dp"
-        android:text="Menu Historias"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="395dp" />
+        android:layout_marginTop="77dp" />
+
     <Button
         android:id="@+id/btnMapAdmin"
         android:layout_width="wrap_content"

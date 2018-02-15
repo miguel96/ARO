@@ -22,7 +22,6 @@
         <activity android:name=".MenuHistoriasActivity" />
         <activity android:name=".HistoriaActivity" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".AdminMapActivity" />
         <activity android:name=".MapAdminActivity"></activity>
     </application>
 
