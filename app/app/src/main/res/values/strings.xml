@@ -13,5 +13,6 @@
         enabled for your project, you have a properly configured google-services.json file
         and that your device has an internet connection.
     </string>
->>>>>>> bf79853be75409038a363a8edf261bd6ba534c9b
+    <string name="title_activity_show_users">showUsers</string>
+    >>>>>>> bf79853be75409038a363a8edf261bd6ba534c9b
 </resources>
