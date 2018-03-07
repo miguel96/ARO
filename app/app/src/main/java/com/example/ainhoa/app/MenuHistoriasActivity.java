@@ -13,12 +13,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MenuHistoriasActivity extends AppCompatActivity {
-
+    Usuario user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_historias);
-
+        Intent intent = getIntent();
+        user = intent.getExtra("usuario");
         ListView listView = findViewById(R.id.listHistorias);
         ArrayList<String> historias = new ArrayList<String>();
         historias.add("Historia1");

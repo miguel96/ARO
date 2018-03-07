@@ -107,6 +107,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } else {
             System.out.println("Logged"+account);
             Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
+            //TODO pass User to next activity.
+            //intent.putExtras("usuario",account);
             startActivity(intent);
         }
     }
