@@ -9,18 +9,23 @@ import java.util.HashMap;
 public class Historia {
 
     private String titulo;
-    private HashMap<String, Pista> pistas;
+    private String idHistoria;
+    private String descripcion;
+    private String propietario;
+    private ArrayList<Pista> pistas;
 
-    public Historia(){
-
-    }
 
     public String getTituloHistoria(){
         return this.titulo;
     }
 
-    public Pista getPista(String code){
-        return pistas.get(code);
-    }
+    public String getIdHistoria() { return this.idHistoria; }
+
+    public String getDescripcion() { return this.descripcion; }
+
+    public String getPropietario() { return this.propietario; }
+
+
+
 
 }
