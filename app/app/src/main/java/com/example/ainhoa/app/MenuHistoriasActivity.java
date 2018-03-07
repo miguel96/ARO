@@ -19,7 +19,8 @@ public class MenuHistoriasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_historias);
         Intent intent = getIntent();
-        user = intent.getExtra("usuario");
+        Bundle bundle = intent.getExtras();
+        user = (Usuario)bundle.get("usuario");
         ListView listView = findViewById(R.id.listHistorias);
         ArrayList<String> historias = new ArrayList<String>();
         historias.add("Historia1");

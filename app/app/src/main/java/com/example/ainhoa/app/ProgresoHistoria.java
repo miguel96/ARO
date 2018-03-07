@@ -1,5 +1,7 @@
 package com.example.ainhoa.app;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -18,8 +20,8 @@ public class ProgresoHistoria {
         return this.idHistoria;
     }
 
-    public ArrayList<PistasCompletadas> getPistasCompletadas {
-        return this.getPistasCompletadas;
+    public ArrayList<PistasCompletadas> getPistasCompletadas() {
+        return this.pistasCompletadas;
     }
     public Date getInicioHistoria(){
         return this.inicioHistoria;

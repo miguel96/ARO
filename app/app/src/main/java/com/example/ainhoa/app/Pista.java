@@ -19,7 +19,7 @@ public class Pista {
 
     public String getNombre(){ return this.nombre; }
 
-    public String getTexto(){ return this.texto }
+    public String getTexto(){ return this.texto; }
 
     public Localizacion getLocalizacion(){ return this.localizacion; }
 

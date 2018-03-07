@@ -1,5 +1,6 @@
 package com.example.ainhoa.app;
 
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -17,7 +18,7 @@ public class PistasCompletadas {
         return this.idPista;
     }
 
-    public Date getFechaCompletada{
+    public Date getFechaCompletada(){
         return this.fechaCompletada;
     }
 

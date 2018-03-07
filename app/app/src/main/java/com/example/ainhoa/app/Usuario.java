@@ -1,5 +1,6 @@
 package com.example.ainhoa.app;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -16,7 +17,7 @@ public class Usuario {
         return this.idUsuario;
     }
 
-    public ArrayList<ProgresoHistoria> getProgresoHistoria{
+    public ArrayList<ProgresoHistoria> getProgresoHistoria(){
         return this.progresoHistoria;
     }
 
