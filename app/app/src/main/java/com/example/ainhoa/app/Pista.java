@@ -1,6 +1,6 @@
 package com.example.ainhoa.app;
 
-import android.location.Location;
+
 
 /**
  * Created by ainhoa on 31/01/18.
@@ -8,21 +8,22 @@ import android.location.Location;
 
 public class Pista {
 
-    private String code;
+    private String idPista;
+    private String nombre;
     private String texto;
-    // localizacion??
+    private Localizacion localizacion;
+    private String respuesta;
 
-    public Pista(){
 
-    }
+    public String getID(){ return this.idPista; }
 
-    public String getCode(){
-        return this.code;
-    }
+    public String getNombre(){ return this.nombre; }
 
-    public String getTexto(){
-        return this.texto;
-    }
+    public String getTexto(){ return this.texto }
+
+    public Localizacion getLocalizacion(){ return this.localizacion; }
+
+    public String getRespuesta(){ return this.respuesta; }
 
 
 }
