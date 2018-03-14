@@ -1,19 +1,53 @@
 package com.example.ainhoa.app;
 
-/**
- * Created by miguel on 1/03/18.
- */
-public class User {
-    private String _id;
-    private String id;
-    private String name;
-    private String givenNave;
-    private  String familyName;
-    private String imageUrl;
-    private String email;
-    private String idToken;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    public String toString(){
-        return "_id:"+id+"\nemail:"+email+"\nname:"+name;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * Created by ainhoa on 31/01/18.
+ */
+
+public class User implements Parcelable{
+    private String _id;
+    private ArrayList<ProgresoHistoria> progresoHistoria;
+
+    public User(Parcel in) {
+        _id=in.readString();
+        in.readTypedList(progresoHistoria,ProgresoHistoria.CREATOR);
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
+
+    public String get_id(){
+        return this._id;
+    }
+
+    public ArrayList<ProgresoHistoria> getProgresoHistoria(){
+        return this.progresoHistoria;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(_id);
+        parcel.writeTypedList(progresoHistoria);
     }
 }

@@ -1,0 +1,22 @@
+{
+  "Usuario": {
+    "_id": "string",
+    "email": "string",
+    "progresoHistorias": [
+      {
+        "idHistoria": "string",
+        "fechaInicio": "Date",
+        "pistasCompletadas": [
+          {
+            "idPista": "string",
+            "fechaCompletada": "date"
+          }
+        ]
+      }
+    ]
+  },
+  "Historia":{
+    "_id":"string",
+
+  }
+}

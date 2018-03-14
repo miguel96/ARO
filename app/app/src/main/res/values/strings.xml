@@ -2,7 +2,7 @@
     <string name="app_name">app</string>
     <string name="access_token" translatable="false">pk.eyJ1IjoiYWluaG9hc2FudHgiLCJhIjoiY2pjdXMxeDNsMDcwZzJ3czZhMGRpZ2xubiJ9.G3GTG00jwyegbkNuxa17aA</string>
     <string name="server_send_token">http://gpi2unavarra.hopto.org:3000/login/android</string>
-    <string name="server_client_id">32419272019-v148qagtlm6ucjodqfhbq4287sdmvhhq.apps.googleusercontent.com</string>
+    <string name="server_client_id">32419272019-fpqrvjusrrafc8kuaa0rkekus7ek7crh.apps.googleusercontent.com</string>
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="signed_in">Signed in</string>
     <string name="signing_in">Signing in…</string>
@@ -14,5 +14,4 @@
         and that your device has an internet connection.
     </string>
     <string name="title_activity_show_users">showUsers</string>
-    >>>>>>> bf79853be75409038a363a8edf261bd6ba534c9b
 </resources>

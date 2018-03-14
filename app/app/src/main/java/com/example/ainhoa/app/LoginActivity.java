@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -18,9 +20,17 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private static final int RC_SIGN_IN = 9001;
+    Retrofit retrofit;
 
     private GoogleSignInClient mGoogleSignInClient;
 
@@ -54,7 +64,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onStart() {
         super.onStart();
         GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
-        updateUI(account);
+        if(account!=null){
+            sendTokenToServer(account.getServerAuthCode());
+        }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -75,42 +87,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             //String idToken= account.getIdToken();
             String authCode = account.getServerAuthCode();
-
-            //TODO send ID token to server and validate
             sendTokenToServer(authCode);
-            updateUI(account);
         } catch (ApiException e){
             Log.w("Error", "signInResult: failed code="+e.getStatusCode()+"Error:"+e);
-            updateUI(null);
         }
     }
 
     private void sendTokenToServer(String token) {
-        try{
-            URL url = new URL(getString(R.string.server_send_token));
-            HttpURLConnection urlConnection=(HttpURLConnection) url.openConnection();
-            urlConnection.setDoOutput(true);
-            urlConnection.setChunkedStreamingMode(0);
+        this.retrofit=new Retrofit.Builder()
+                .baseUrl("http://gpi2unavarra.hopto.org:3000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        LoginService loginService = retrofit.create(LoginService.class);
+        Call<User> call = loginService.loginUser(new Token(token));
+        call.enqueue(new Callback<User>(){
+            @Override
+            public void onResponse(Call<User> call, Response<User> userInfo) {
+                Intent intent = new Intent(LoginActivity.this, UserLogged.class);
+                intent.putExtra("user", userInfo.body());
+                startActivity(intent);
+            }
 
-            OutputStream out=new BufferedOutputStream(urlConnection.getOutputStream());
-            out.write((token.getBytes(Charset.forName("UTF-8"))));
-            urlConnection.disconnect();
-        }catch (Exception err){
-            Log.d("Error",err.toString());
-        }
-    }
-
-    private void updateUI(GoogleSignInAccount account) {
-        if(account==null) {
-            System.out.println("user not logged");
-            //TODO: show login
-        } else {
-            System.out.println("Logged"+account);
-            Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
-            //TODO pass User to next activity.
-            //intent.putExtras("usuario",account);
-            startActivity(intent);
-        }
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                System.out.println("Error "+call);
+            }
+        });
+        Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera",Toast.LENGTH_SHORT);
     }
 
 }
