@@ -13,11 +13,11 @@ import java.util.HashMap;
 
 public class User implements Parcelable{
     private String _id;
-    private ArrayList<ProgresoHistoria> progresoHistoria;
+    private ArrayList<ProgresoHistoria> progresoHistorias;
 
     public User(Parcel in) {
         _id=in.readString();
-        progresoHistoria= in.createTypedArrayList(ProgresoHistoria.CREATOR);
+        progresoHistorias= in.createTypedArrayList(ProgresoHistoria.CREATOR);
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -37,7 +37,7 @@ public class User implements Parcelable{
     }
 
     public ArrayList<ProgresoHistoria> getProgresoHistoria(){
-        return this.progresoHistoria;
+        return this.progresoHistorias;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class User implements Parcelable{
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(_id);
-        parcel.writeTypedList(progresoHistoria);
+        parcel.writeTypedList(progresoHistorias);
     }
 
     @Override

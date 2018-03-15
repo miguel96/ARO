@@ -22,6 +22,7 @@ public class MenuHistoriasActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         user = (User)bundle.get("usuario");*/
+        //TODO Pasar el Id de la historia clickada.
         ListView listView = findViewById(R.id.listHistorias);
         ArrayList<String> historias = new ArrayList<String>();
         historias.add("Historia1");
