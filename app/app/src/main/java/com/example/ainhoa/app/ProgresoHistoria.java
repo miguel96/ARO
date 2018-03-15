@@ -20,7 +20,7 @@ public class ProgresoHistoria implements Parcelable{
 
     protected ProgresoHistoria(Parcel in) {
         idHistoria = in.readString();
-        in.readTypedList(pistasCompletadas,PistasCompletadas.CREATOR);
+        in.createTypedArray(PistasCompletadas.CREATOR);
         inicioHistoria=(java.util.Date) in.readSerializable();
     }
 
@@ -57,5 +57,10 @@ public class ProgresoHistoria implements Parcelable{
         parcel.writeString(idHistoria);
         parcel.writeTypedList(pistasCompletadas);
         parcel.writeSerializable(inicioHistoria);
+    }
+
+    @Override
+    public String toString() {
+        return "Historia:"+idHistoria+"\nStarted:"+inicioHistoria+"\n"+pistasCompletadas;
     }
 }

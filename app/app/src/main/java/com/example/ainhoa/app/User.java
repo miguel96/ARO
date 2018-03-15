@@ -17,7 +17,7 @@ public class User implements Parcelable{
 
     public User(Parcel in) {
         _id=in.readString();
-        in.readTypedList(progresoHistoria,ProgresoHistoria.CREATOR);
+        progresoHistoria= in.createTypedArrayList(ProgresoHistoria.CREATOR);
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -28,7 +28,7 @@ public class User implements Parcelable{
 
         @Override
         public User[] newArray(int size) {
-            return new User[size];
+            return new User[0];
         }
     };
 
@@ -49,5 +49,10 @@ public class User implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(_id);
         parcel.writeTypedList(progresoHistoria);
+    }
+
+    @Override
+    public String toString() {
+        return "User: "+this._id+" progresoHistoria:"+progresoHistoria.toString();
     }
 }

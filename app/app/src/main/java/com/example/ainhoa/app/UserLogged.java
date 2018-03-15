@@ -10,7 +10,7 @@ public class UserLogged extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_logged);
-        user = (User) getIntent().getParcelableExtra("user");
+        user = (User) getIntent().getExtras().getParcelable("user");
         TextView userText=findViewById(R.id.userInfo);
         userText.setText(user.toString());
     }

@@ -65,7 +65,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onStart();
         GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
         if(account!=null){
-            sendTokenToServer(account.getServerAuthCode());
+            String serverAuthCode=account.getServerAuthCode();
+            // If logs and havent a server auth code we dont want to make request
+            if(serverAuthCode!=null){
+                System.out.println(serverAuthCode);
+                Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera"+account,Toast.LENGTH_SHORT);
+                sendTokenToServer(account.getServerAuthCode());
+                sendTokenToServer(account.getServerAuthCode());
+            }
         }
     }
 
@@ -94,8 +101,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void sendTokenToServer(String token) {
+        if(token==null){
+            System.out.println("null token");
+        }
+
         this.retrofit=new Retrofit.Builder()
-                .baseUrl("http://gpi2unavarra.hopto.org:3000/")
+                .baseUrl(getString(R.string.hostBasePath))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         LoginService loginService = retrofit.create(LoginService.class);
@@ -103,6 +114,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
+                System.out.println(userInfo.body().toString());
                 Intent intent = new Intent(LoginActivity.this, UserLogged.class);
                 intent.putExtra("user", userInfo.body());
                 startActivity(intent);
@@ -110,7 +122,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                System.out.println("Error "+call);
+                try {
+                    throw t;
+                } catch (Throwable throwable) {
+                    throwable.printStackTrace();
+                }
+                Toast.makeText(getApplicationContext(),"Error al logearte"+call,Toast.LENGTH_SHORT);
             }
         });
         Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera",Toast.LENGTH_SHORT);

@@ -51,4 +51,9 @@ public class PistasCompletadas implements Parcelable{
         parcel.writeString(idPista);
         parcel.writeSerializable(fechaCompletada);
     }
+
+    @Override
+    public String toString() {
+        return "idPista: "+idPista+" fechaCompletada:"+fechaCompletada;
+    }
 }
