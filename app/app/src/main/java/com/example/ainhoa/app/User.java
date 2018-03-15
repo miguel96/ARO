@@ -53,6 +53,6 @@ public class User implements Parcelable{
 
     @Override
     public String toString() {
-        return "User: "+this._id+" progresoHistoria:"+progresoHistoria.toString();
+        return "User: "+this._id+" progresoHistoria:"+progresoHistorias.toString();
     }
 }
