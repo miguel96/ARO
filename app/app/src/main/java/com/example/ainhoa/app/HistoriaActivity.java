@@ -36,6 +36,12 @@ public class HistoriaActivity extends AppCompatActivity {
         TextView tituloHistoria = findViewById(R.id.txtTituloHistoria);
         Intent intent = getIntent();
         idHistoria = intent.getStringExtra("idHistoria");
+        try {
+            getHistoria();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //TODO el codigo de aqui debajo hay que modificarlo con los valores que tiene historia.
         // Propiedades extraidas de intent, pasar parametros entre Activites
         String item = getIntent().getStringExtra("selected-item");
         tituloHistoria.setText("You selected " + item);

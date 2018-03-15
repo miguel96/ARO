@@ -20,6 +20,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.Icon;
+import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
@@ -69,10 +72,16 @@ public class MapActivity extends AppCompatActivity {
             public void onLocationChanged(Location location) {
                 latitud = location.getLatitude();
                 longitud = location.getLongitude();
-                if(map!=null)
-                    //TODO: MARCAR EN EL MAPA LA POSICION
+                Icon icon;
+                if(map!=null) {
 
+                    icon = IconFactory.getInstance(MapActivity.this).fromResource(R.drawable.marker_persona);
+
+                    map.addMarker(new MarkerOptions()
+                            .position(new LatLng(latitud, longitud))
+                            .icon(icon));
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
+                }
             }
 
             @Override
