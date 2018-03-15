@@ -13,10 +13,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HistoriaActivity extends AppCompatActivity {
-
+    Retrofit retrofit;
+    HistoriaService historiaService;
+    String idHistoria;
+    Historia historia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +35,7 @@ public class HistoriaActivity extends AppCompatActivity {
 
         TextView tituloHistoria = findViewById(R.id.txtTituloHistoria);
         Intent intent = getIntent();
-
+        idHistoria = intent.getStringExtra("idHistoria");
         // Propiedades extraidas de intent, pasar parametros entre Activites
         String item = getIntent().getStringExtra("selected-item");
         tituloHistoria.setText("You selected " + item);
@@ -71,6 +82,27 @@ public class HistoriaActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void getHistoria() throws IOException {
+        this.retrofit=new Retrofit.Builder()
+                .baseUrl("http://gpi2unavarra.hopto.org:3000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        this.historiaService = retrofit.create(HistoriaService.class);
+
+        Call<Historia> call = historiaService.getHistoriaById(this.idHistoria, new Callback<Historia>() {
+            @Override
+            public void onResponse(Call<Historia> call, Response<Historia> response) {
+                historia = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<Historia> call, Throwable t) {
+
+            }
+        });
 
     }
 
