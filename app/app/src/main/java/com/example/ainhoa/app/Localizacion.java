@@ -9,6 +9,10 @@ public class Localizacion implements Parcelable{
     private double latitud;
     private double longitud;
 
+    public Localizacion(){
+        latitud = 32.1;
+        longitud = 37.4;
+    }
 
     protected Localizacion(Parcel in) {
         latitud = in.readDouble();

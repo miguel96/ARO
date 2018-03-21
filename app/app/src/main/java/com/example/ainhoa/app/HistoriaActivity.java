@@ -28,6 +28,7 @@ public class HistoriaActivity extends AppCompatActivity {
     HistoriaService historiaService;
     String idHistoria;
     Historia historia;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,16 +36,20 @@ public class HistoriaActivity extends AppCompatActivity {
 
         TextView tituloHistoria = findViewById(R.id.txtTituloHistoria);
         Intent intent = getIntent();
-        idHistoria = intent.getStringExtra("idHistoria");
-        try {
+        Bundle bundle = intent.getExtras();
+
+        historia = (Historia)bundle.get("historia");
+        user = (User)bundle.get("user");
+        //idHistoria = historia.getIdHistoria();
+        /*try {
             getHistoria();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         //TODO el codigo de aqui debajo hay que modificarlo con los valores que tiene historia.
-        // Propiedades extraidas de intent, pasar parametros entre Activites
-        String item = getIntent().getStringExtra("selected-item");
-        tituloHistoria.setText("You selected " + item);
+
+
+        tituloHistoria.setText(historia.getTituloHistoria());
 
         // Funciones del botón
         final Button buttonToMapa = findViewById(R.id.btnToMapa);
@@ -52,6 +57,8 @@ public class HistoriaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HistoriaActivity.this, MapActivity.class);
+                intent.putExtra("user",user);
+                intent.putExtra("historia",historia);
                 startActivity(intent);
             }
         });

@@ -43,7 +43,7 @@ import java.util.List;
 public class MapActivity extends AppCompatActivity {
 
     private MapView mapView;
-
+    User user;
     // variables for adding location layer
     private MapboxMap map = null;
     private PermissionsManager permissionsManager;
@@ -53,7 +53,7 @@ public class MapActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private LocationListener locationListener;
     private double latitud,longitud;
-
+    private Historia historia;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -116,7 +116,17 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        user = (User)bundle.get("user");
+        historia = (Historia)bundle.get("historia");
+        ProgresoHistoria pH = user.getProgresoHistoria(historia.getIdHistoria());
+        if(pH!=null) {
+            Pista pistaActual = historia.getPistas().get(pH.getPistasCompletadas().size() - 1);
 
+        }else{
+            System.out.println("ProgresoHistoria es null, un poco raro, habrá algo mal en la bbdd");
+        }
         // ver pista
         final Button buttonPistaMapa = findViewById(R.id.btnPistaAct);
         final TextView txtpista = findViewById(R.id.txtPistaAct);

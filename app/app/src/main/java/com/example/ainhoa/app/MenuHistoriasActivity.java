@@ -18,15 +18,15 @@ public class MenuHistoriasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_historias);
-        /**
-        Intent intent = getIntent();
+
+        /*Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        user = (User)bundle.get("usuario");*/
+        user = (User)bundle.get("user");*/
+        //TODO ESTO SOLO VALE PARA LOCAL, hay que usar los intents de arriba.
+        user=new User();
         //TODO Pasar el Id de la historia clickada.
         ListView listView = findViewById(R.id.listHistorias);
-        ArrayList<String> historias = new ArrayList<String>();
-        historias.add("Historia1");
-        historias.add("Historia2");
+        ArrayList<String> historias = user.getHistorias();
 
         ArrayAdapter<String> adapter;
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, historias);
@@ -35,10 +35,12 @@ public class MenuHistoriasActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String text = ((TextView)view).getText().toString();
+
                 //Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MenuHistoriasActivity.this, HistoriaActivity.class);
-                intent.putExtra("selected-item", text);
+                //TODO NO HAY QUE MANDAR UNA HISTORIA NUEVA, SINO LA SELECCIONADA MANDANDO PETICION AL SERVIDOR CON EL IDHISTORIA SELECCIONADO.
+                intent.putExtra("historia", new Historia());
+                intent.putExtra("user",user);
                 startActivity(intent);
             }
         });

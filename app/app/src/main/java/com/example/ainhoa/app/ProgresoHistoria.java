@@ -17,6 +17,13 @@ public class ProgresoHistoria implements Parcelable{
     private ArrayList<PistasCompletadas> pistasCompletadas;
     private Date inicioHistoria;
 
+    public ProgresoHistoria(){
+        idHistoria = "La historia";
+        pistasCompletadas = new ArrayList<PistasCompletadas>();
+        for(int i=0;i<3;i++)
+            pistasCompletadas.add(new PistasCompletadas(i));
+        inicioHistoria = new Date();
+    }
 
     protected ProgresoHistoria(Parcel in) {
         idHistoria = in.readString();

@@ -15,6 +15,13 @@ public class User implements Parcelable{
     private String _id;
     private ArrayList<ProgresoHistoria> progresoHistorias;
 
+    public User(){
+        _id = "Ruben";
+        progresoHistorias = new ArrayList<ProgresoHistoria>();
+
+        progresoHistorias.add(new ProgresoHistoria());
+    }
+
     public User(Parcel in) {
         _id=in.readString();
         progresoHistorias= in.createTypedArrayList(ProgresoHistoria.CREATOR);
@@ -31,6 +38,13 @@ public class User implements Parcelable{
             return new User[0];
         }
     };
+    public ArrayList<String> getHistorias(){
+        ArrayList<String> historias = new ArrayList<String>();
+        for(int i=0;i<progresoHistorias.size();i++){
+            historias.add(progresoHistorias.get(i).getIdHistoria());
+        }
+        return historias;
+    }
 
     public String get_id(){
         return this._id;
@@ -38,6 +52,13 @@ public class User implements Parcelable{
 
     public ArrayList<ProgresoHistoria> getProgresoHistoria(){
         return this.progresoHistorias;
+    }
+
+    public ProgresoHistoria getProgresoHistoria(String idHistoria){
+        for(int i=0;i<this.progresoHistorias.size();i++)
+            if(this.progresoHistorias.get(i).getIdHistoria().equals(idHistoria))
+                return this.progresoHistorias.get(i);
+        return null;
     }
 
     @Override

@@ -18,6 +18,16 @@ public class Historia implements Parcelable{
     private String propietario;
     private ArrayList<Pista> pistas;
 
+    public Historia(){
+        titulo = "Asesinato";
+        idHistoria = "La historia";
+        descripcion = "Un asesino anda suelto por las calles de Pamplona";
+        propietario = "Ruben";
+        pistas = new ArrayList<Pista>();
+        for(int i=0;i<5;i++)
+            pistas.add(new Pista(i));
+    }
+
     public Historia(Parcel in){
         titulo = in.readString();
         idHistoria = in.readString();
@@ -49,6 +59,7 @@ public class Historia implements Parcelable{
 
     public String getPropietario() { return this.propietario; }
 
+    public ArrayList<Pista> getPistas(){return this.pistas;}
 
     @Override
     public int describeContents() {
