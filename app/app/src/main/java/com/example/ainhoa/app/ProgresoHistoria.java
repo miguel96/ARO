@@ -19,9 +19,10 @@ public class ProgresoHistoria implements Parcelable{
 
     public ProgresoHistoria(){
         idHistoria = "La historia";
-        pistasCompletadas = new ArrayList<PistasCompletadas>();
-        for(int i=0;i<3;i++)
-            pistasCompletadas.add(new PistasCompletadas(i));
+        pistasCompletadas = new ArrayList<>();
+        //No puedo entender porque esto siempre está a null...
+        PistasCompletadas pc = new PistasCompletadas();
+        pistasCompletadas.add(pc);
         inicioHistoria = new Date();
     }
 

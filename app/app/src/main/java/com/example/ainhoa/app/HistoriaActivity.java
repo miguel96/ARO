@@ -1,6 +1,7 @@
 package com.example.ainhoa.app;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -26,7 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HistoriaActivity extends AppCompatActivity {
     Retrofit retrofit;
     HistoriaService historiaService;
-    String idHistoria;
+
+    ProgresoHistoria progresoHistoria;
     Historia historia;
     User user;
     @Override
@@ -38,9 +40,8 @@ public class HistoriaActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
-        historia = (Historia)bundle.get("historia");
-        user = (User)bundle.get("user");
-        //idHistoria = historia.getIdHistoria();
+        historia = new Historia();
+        user = (User)bundle.getParcelable("user");
         /*try {
             getHistoria();
         } catch (IOException e) {
@@ -57,8 +58,8 @@ public class HistoriaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HistoriaActivity.this, MapActivity.class);
-                intent.putExtra("user",user);
-                intent.putExtra("historia",historia);
+                intent.putExtra("user",(Parcelable)user);
+                intent.putExtra("historia",(Parcelable)historia);
                 startActivity(intent);
             }
         });
@@ -66,34 +67,15 @@ public class HistoriaActivity extends AppCompatActivity {
         // display de la historia
         ListView listView = findViewById(R.id.listPistas);
         // fragmentos de la historia
+
         ArrayList<String> frags = new ArrayList<String>();
-        frags.add("Esta va a ser la parte 1 de la historia. Probando a ver si hace bien el wrap del texto. Si haces click en mi se abrirá una ventana (o aparecerá un toast largo?) donde aparecera la pista que se dió para descubrir esta parte de la historia");
-        frags.add("También el sitio donde se encontraba (solo el nombre del lugar o una opción de ir al mapa tambien??)");
-        frags.add("Y básicamente es eso");
+        frags.add(historia.getIdHistoria());
+        frags.add(historia.getDescripcion());
 
         ArrayAdapter<String> adapter;
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, frags);
         listView.setAdapter(adapter);
 
-        final String pista = "Pista prueba \nPara ver como encaja en el cuadro del mensaje. ¿Solo la pista? ¿Nombre del sitio donde se descubrió? ¿Ubicación? Ya veremos. Y a ver como hago para cerrarlo...";
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                final TextView msgPista = (TextView) findViewById(R.id.txtPistaHistoria);
-                msgPista.setVisibility(View.VISIBLE);
-                msgPista.setText(pista);
-                final Button btnCierraPista = findViewById(R.id.btnClosePista);
-                btnCierraPista.setVisibility(View.VISIBLE);
-                btnCierraPista.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        msgPista.setVisibility(View.INVISIBLE);
-                        btnCierraPista.setVisibility(View.INVISIBLE);
-                    }
-                });
-            }
-        });
 
 
     }
@@ -105,7 +87,7 @@ public class HistoriaActivity extends AppCompatActivity {
                 .build();
         this.historiaService = retrofit.create(HistoriaService.class);
 
-        Call<Historia> call = historiaService.getHistoriaById(this.idHistoria, new Callback<Historia>() {
+        Call<Historia> call = historiaService.getHistoriaById(this.historia.getIdHistoria(), new Callback<Historia>() {
             @Override
             public void onResponse(Call<Historia> call, Response<Historia> response) {
                 historia = response.body();

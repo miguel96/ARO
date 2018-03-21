@@ -15,9 +15,10 @@ public class PistasCompletadas implements Parcelable{
     private String idPista;
     private Date fechaCompletada;
 
-    public PistasCompletadas(int i){
-        idPista = "Pista "+i;
-        fechaCompletada = new Date();
+    public PistasCompletadas(){
+        this.idPista = "Pista";
+        this.fechaCompletada = new Date();
+        System.out.println("Creando pista completada");
     }
 
     protected PistasCompletadas(Parcel in) {

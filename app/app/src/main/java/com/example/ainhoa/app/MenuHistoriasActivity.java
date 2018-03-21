@@ -1,6 +1,7 @@
 package com.example.ainhoa.app;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,8 +40,8 @@ public class MenuHistoriasActivity extends AppCompatActivity {
                 //Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MenuHistoriasActivity.this, HistoriaActivity.class);
                 //TODO NO HAY QUE MANDAR UNA HISTORIA NUEVA, SINO LA SELECCIONADA MANDANDO PETICION AL SERVIDOR CON EL IDHISTORIA SELECCIONADO.
-                intent.putExtra("historia", new Historia());
-                intent.putExtra("user",user);
+
+                intent.putExtra("user",(Parcelable) user);
                 startActivity(intent);
             }
         });

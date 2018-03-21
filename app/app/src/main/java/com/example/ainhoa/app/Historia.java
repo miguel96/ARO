@@ -28,7 +28,7 @@ public class Historia implements Parcelable{
             pistas.add(new Pista(i));
     }
 
-    public Historia(Parcel in){
+    protected Historia(Parcel in){
         titulo = in.readString();
         idHistoria = in.readString();
         descripcion = in.readString();
@@ -48,7 +48,12 @@ public class Historia implements Parcelable{
             return new Historia[i];
         }
     };
-
+    /*public Pista getPistaById(String idPista){
+        for(int i=0;i<pistas.size();i++)
+            if(pistas.get(i).getID().equals(idPista))
+                return pistas.get(i);
+        return null;
+    }*/
     public String getTituloHistoria(){
         return this.titulo;
     }

@@ -54,7 +54,7 @@ public class MapActivity extends AppCompatActivity {
     private LocationListener locationListener;
     private double latitud,longitud;
     private Historia historia;
-
+    private MarkerOptions markerOptions;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +65,17 @@ public class MapActivity extends AppCompatActivity {
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
-
+        final Icon icon = IconFactory.getInstance(MapActivity.this).fromResource(R.drawable.marker_persona);;
+        markerOptions = new MarkerOptions()
+                .icon(icon);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
                 latitud = location.getLatitude();
                 longitud = location.getLongitude();
-                Icon icon;
                 if(map!=null) {
-
-                    icon = IconFactory.getInstance(MapActivity.this).fromResource(R.drawable.marker_persona);
+                    markerOptions.position(new LatLng(latitud, longitud));
 
                     map.addMarker(new MarkerOptions()
                             .position(new LatLng(latitud, longitud))
@@ -105,7 +105,7 @@ public class MapActivity extends AppCompatActivity {
                     Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
             return;
         }
-        locationManager.requestLocationUpdates("gps", 100, 0, locationListener);
+        locationManager.requestLocationUpdates("gps", 10, 0, locationListener);
 
         // Add user location to the map
         mapView.getMapAsync(new OnMapReadyCallback() {
@@ -116,17 +116,10 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        user = (User)bundle.get("user");
-        historia = (Historia)bundle.get("historia");
-        ProgresoHistoria pH = user.getProgresoHistoria(historia.getIdHistoria());
-        if(pH!=null) {
-            Pista pistaActual = historia.getPistas().get(pH.getPistasCompletadas().size() - 1);
 
-        }else{
-            System.out.println("ProgresoHistoria es null, un poco raro, habrá algo mal en la bbdd");
-        }
+        user = (User)getIntent().getParcelableExtra("user");
+        historia = (Historia)getIntent().getParcelableExtra("historia");
+
         // ver pista
         final Button buttonPistaMapa = findViewById(R.id.btnPistaAct);
         final TextView txtpista = findViewById(R.id.txtPistaAct);
@@ -156,7 +149,7 @@ public class MapActivity extends AppCompatActivity {
             case 10:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        locationManager.requestLocationUpdates("gps", 1000, 0, locationListener);
+                        locationManager.requestLocationUpdates("gps", 10, 0, locationListener);
 
                     }
         }
