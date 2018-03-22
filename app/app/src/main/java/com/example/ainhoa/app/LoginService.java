@@ -11,4 +11,7 @@ import retrofit2.http.POST;
 public interface LoginService {
     @POST("login/android")
     Call<User> loginUser(@Body Token token);
+
+    @POST("login/android/google")
+    Call<User> loginUserGoogleId(@Body Token id);
 }

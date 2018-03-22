@@ -7,17 +7,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by ainhoa on 31/01/18.
- */
-
 public class User implements Parcelable{
     private String _id;
-    private ArrayList<ProgresoHistoria> progresoHistorias;
+    private ArrayList<ProgresoHistoria> progresoHistoria;
 
     public User(Parcel in) {
         _id=in.readString();
-        progresoHistorias= in.createTypedArrayList(ProgresoHistoria.CREATOR);
+        progresoHistoria= in.createTypedArrayList(ProgresoHistoria.CREATOR);
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -37,7 +33,7 @@ public class User implements Parcelable{
     }
 
     public ArrayList<ProgresoHistoria> getProgresoHistoria(){
-        return this.progresoHistorias;
+        return this.progresoHistoria;
     }
 
     @Override
@@ -48,11 +44,12 @@ public class User implements Parcelable{
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(_id);
-        parcel.writeTypedList(progresoHistorias);
+        parcel.writeTypedList(progresoHistoria);
     }
 
     @Override
     public String toString() {
-        return "User: "+this._id+" progresoHistoria:"+progresoHistorias.toString();
+        System.out.println(progresoHistoria);
+        return "User: "+this._id+" progresoHistoria:"+progresoHistoria.toString();
     }
 }

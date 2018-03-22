@@ -34,9 +34,47 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private GoogleSignInClient mGoogleSignInClient;
 
+    private void loadUserInfo(String id) {
+        this.retrofit=new Retrofit.Builder()
+                .baseUrl(getString(R.string.hostBasePath))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        LoginService loginService = retrofit.create(LoginService.class);
+        Call<User> call = loginService.loginUserGoogleId(new Token(id));
+        call.enqueue(new Callback<User>(){
+            @Override
+            public void onResponse(Call<User> call, Response<User> userInfo) {
+                System.out.println(userInfo.body());
+                System.out.println("OK");
+                Intent intent = new Intent(LoginActivity.this, UserLogged.class);
+                intent.putExtra("user", userInfo.body());
+                System.out.println(userInfo.toString());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                try {
+                    throw t;
+                } catch (Throwable throwable) {
+                    throwable.printStackTrace();
+                }
+                Toast.makeText(getApplicationContext(),"Error al logearte"+call,Toast.LENGTH_SHORT);
+            }
+        });
+        Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera",Toast.LENGTH_SHORT);
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //Check if user has logged before
+        GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
+        if(account!=null) {
+            System.out.println("OK");
+            loadUserInfo(account.getId());
+        }
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -70,7 +108,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if(serverAuthCode!=null){
                 System.out.println(serverAuthCode);
                 Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera"+account,Toast.LENGTH_SHORT);
-                sendTokenToServer(account.getServerAuthCode());
                 sendTokenToServer(account.getServerAuthCode());
             }
         }
@@ -114,9 +151,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
-                System.out.println(userInfo.body().toString());
+                System.out.println(userInfo.body());
+                System.out.println("OK");
                 Intent intent = new Intent(LoginActivity.this, UserLogged.class);
                 intent.putExtra("user", userInfo.body());
+                System.out.println(userInfo.toString());
                 startActivity(intent);
             }
 
