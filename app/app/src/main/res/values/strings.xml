@@ -14,4 +14,5 @@
     </string>
     <string name="title_activity_show_users">showUsers</string>
     <string name="hostBasePath">http://gpi2unavarra.hopto.org:3000/</string>
+    <string name="preference_google_user_id">googleUserId</string>
 </resources>

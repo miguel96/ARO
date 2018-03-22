@@ -1,6 +1,8 @@
 package com.example.ainhoa.app;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,11 +46,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
-                System.out.println(userInfo.body());
-                System.out.println("OK");
+
                 Intent intent = new Intent(LoginActivity.this, UserLogged.class);
                 intent.putExtra("user", userInfo.body());
-                System.out.println(userInfo.toString());
                 startActivity(intent);
             }
 
@@ -69,13 +69,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //Check if user has logged before
-        GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
-        if(account!=null) {
-            System.out.println("OK");
-            loadUserInfo(account.getId());
-        }
 
+        Context context = getApplicationContext();
+        String googleUserId;
+        googleUserId = context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).getString("googleUserId",null);
+        System.out.println(googleUserId);
+        if(googleUserId!=null) {
+            loadUserInfo(googleUserId);
+        } else {
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         String serverClientId = getString(R.string.server_client_id);
@@ -87,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-
+        }
     }
 
     @Override
@@ -95,21 +96,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.sign_in_button:
                 signIn();
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
-        if(account!=null){
-            String serverAuthCode=account.getServerAuthCode();
-            // If logs and havent a server auth code we dont want to make request
-            if(serverAuthCode!=null){
-                System.out.println(serverAuthCode);
-                Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera"+account,Toast.LENGTH_SHORT);
-                sendTokenToServer(account.getServerAuthCode());
-            }
         }
     }
 
@@ -151,11 +137,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
-                System.out.println(userInfo.body());
-                System.out.println("OK");
+                // We have to save user token on sharedPreferences
+
                 Intent intent = new Intent(LoginActivity.this, UserLogged.class);
-                intent.putExtra("user", userInfo.body());
-                System.out.println(userInfo.toString());
+                User user = userInfo.body();
+                intent.putExtra("user", user);
+                Context context = getApplicationContext();
+                SharedPreferences.Editor editor= context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).edit();
+                editor.putString("googleUserId",user.getGoogleId());
+                System.out.println(editor.commit());
                 startActivity(intent);
             }
 

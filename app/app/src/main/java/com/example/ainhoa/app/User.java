@@ -9,10 +9,12 @@ import java.util.HashMap;
 
 public class User implements Parcelable{
     private String _id;
+    private String googleId;
     private ArrayList<ProgresoHistoria> progresoHistoria;
 
     public User(Parcel in) {
         _id=in.readString();
+        googleId=in.readString();
         progresoHistoria= in.createTypedArrayList(ProgresoHistoria.CREATOR);
     }
 
@@ -44,6 +46,7 @@ public class User implements Parcelable{
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(_id);
+        parcel.writeString(googleId);
         parcel.writeTypedList(progresoHistoria);
     }
 
@@ -51,5 +54,9 @@ public class User implements Parcelable{
     public String toString() {
         System.out.println(progresoHistoria);
         return "User: "+this._id+" progresoHistoria:"+progresoHistoria.toString();
+    }
+
+    public String getGoogleId() {
+        return googleId;
     }
 }
