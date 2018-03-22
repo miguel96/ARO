@@ -15,16 +15,16 @@ public class PistasCompletadas implements Parcelable{
     private String idPista;
     private Date fechaCompletada;
 
-    public PistasCompletadas(){
+    public PistasCompletadas(Parcel in){
         this.idPista = "Pista";
         this.fechaCompletada = new Date();
         System.out.println("Creando pista completada");
     }
-
+    /*
     protected PistasCompletadas(Parcel in) {
         idPista = in.readString();
         fechaCompletada= (Date) in.readSerializable();
-    }
+    }*/
 
     public static final Creator<PistasCompletadas> CREATOR = new Creator<PistasCompletadas>() {
         @Override

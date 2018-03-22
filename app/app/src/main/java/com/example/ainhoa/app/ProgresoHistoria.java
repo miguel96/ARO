@@ -17,20 +17,20 @@ public class ProgresoHistoria implements Parcelable{
     private ArrayList<PistasCompletadas> pistasCompletadas;
     private Date inicioHistoria;
 
-    public ProgresoHistoria(){
+    public ProgresoHistoria(Parcel in){
         idHistoria = "La historia";
         pistasCompletadas = new ArrayList<>();
         //No puedo entender porque esto siempre está a null...
-        PistasCompletadas pc = new PistasCompletadas();
-        pistasCompletadas.add(pc);
+        for(int i=0;i<3;i++)
+            pistasCompletadas.add(new PistasCompletadas(in));
         inicioHistoria = new Date();
     }
-
+/*
     protected ProgresoHistoria(Parcel in) {
         idHistoria = in.readString();
         in.createTypedArray(PistasCompletadas.CREATOR);
         inicioHistoria=(java.util.Date) in.readSerializable();
-    }
+    }*/
 
     public static final Creator<ProgresoHistoria> CREATOR = new Creator<ProgresoHistoria>() {
         @Override

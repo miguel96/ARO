@@ -1,7 +1,10 @@
 package com.example.ainhoa.app;
 
 import android.content.Intent;
+import android.os.Build;
+import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -31,6 +34,7 @@ public class HistoriaActivity extends AppCompatActivity {
     ProgresoHistoria progresoHistoria;
     Historia historia;
     User user;
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +44,9 @@ public class HistoriaActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
-        historia = new Historia();
+        historia = new Historia(Parcel.obtain());
         user = (User)bundle.getParcelable("user");
+        System.out.println(user.get_id());
         /*try {
             getHistoria();
         } catch (IOException e) {
@@ -58,8 +63,9 @@ public class HistoriaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HistoriaActivity.this, MapActivity.class);
-                intent.putExtra("user",(Parcelable)user);
-                intent.putExtra("historia",(Parcelable)historia);
+
+                //intent.putExtra("progresoHistoria",user.getProgresoHistoria(historia.getIdHistoria()));
+                intent.putExtra("historia",historia);
                 startActivity(intent);
             }
         });
@@ -70,7 +76,10 @@ public class HistoriaActivity extends AppCompatActivity {
 
         ArrayList<String> frags = new ArrayList<String>();
         frags.add(historia.getIdHistoria());
-        frags.add(historia.getDescripcion());
+        for(int i=0;i<user.getProgresoHistoria(historia.getIdHistoria()).getPistasCompletadas().size();i++){
+            frags.add(user.getProgresoHistoria(historia.getIdHistoria()).getPistasCompletadas().get(i).getIdPista());
+        }
+        //frags.add(historia.getDescripcion());
 
         ArrayAdapter<String> adapter;
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, frags);

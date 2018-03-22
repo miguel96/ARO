@@ -15,17 +15,17 @@ public class User implements Parcelable{
     private String _id;
     private ArrayList<ProgresoHistoria> progresoHistorias;
 
-    public User(){
+    public User(Parcel in){
         _id = "Ruben";
-        progresoHistorias = new ArrayList<ProgresoHistoria>();
+        progresoHistorias = new ArrayList<>();
 
-        progresoHistorias.add(new ProgresoHistoria());
+        progresoHistorias.add(new ProgresoHistoria(in));
     }
-
+    /*
     public User(Parcel in) {
         _id=in.readString();
         progresoHistorias= in.createTypedArrayList(ProgresoHistoria.CREATOR);
-    }
+    }*/
 
     public static final Creator<User> CREATOR = new Creator<User>() {
         @Override

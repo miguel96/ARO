@@ -43,7 +43,7 @@ import java.util.List;
 public class MapActivity extends AppCompatActivity {
 
     private MapView mapView;
-    User user;
+    private ProgresoHistoria progreso;
     // variables for adding location layer
     private MapboxMap map = null;
     private PermissionsManager permissionsManager;
@@ -60,11 +60,18 @@ public class MapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        Mapbox.getInstance(this, getString(R.string.access_token));
+
         setContentView(R.layout.activity_map);
+
+        Intent intent = getIntent();
+        //getParcelable
+        //progreso = (ProgresoHistoria)intent.getParcelableExtra("progresoHistoria");
+        historia = (Historia)intent.getParcelableExtra("historia");
+
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
+        Mapbox.getInstance(this, getString(R.string.access_token));
         final Icon icon = IconFactory.getInstance(MapActivity.this).fromResource(R.drawable.marker_persona);;
         markerOptions = new MarkerOptions()
                 .icon(icon);
@@ -77,9 +84,7 @@ public class MapActivity extends AppCompatActivity {
                 if(map!=null) {
                     markerOptions.position(new LatLng(latitud, longitud));
 
-                    map.addMarker(new MarkerOptions()
-                            .position(new LatLng(latitud, longitud))
-                            .icon(icon));
+
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
                 }
             }
@@ -112,13 +117,13 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
                 map = mapboxMap;
+                map.addMarker(markerOptions
+                        .position(new LatLng(latitud, longitud)));
                 mapboxMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
             }
         });
 
 
-        user = (User)getIntent().getParcelableExtra("user");
-        historia = (Historia)getIntent().getParcelableExtra("historia");
 
         // ver pista
         final Button buttonPistaMapa = findViewById(R.id.btnPistaAct);

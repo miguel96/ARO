@@ -18,22 +18,22 @@ public class Pista implements Parcelable{
     private Localizacion localizacion;
     private String respuesta;
 
-    public Pista(int i){
-            idPista = "Pista "+i;
-            nombre = "Esta es la pista "+i;
+    public Pista(Parcel in){
+            idPista = "Pista x";
+            nombre = "Esta es la pista x";
             texto = "No hace falta ";
-            localizacion = new Localizacion();
+            localizacion = new Localizacion(in);
             respuesta = null;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
+    /*@RequiresApi(api = Build.VERSION_CODES.M)
     protected Pista(Parcel in) {
         idPista = in.readString();
         nombre = in.readString();
         texto = in.readString();
         localizacion = in.readTypedObject(Localizacion.CREATOR);
         respuesta = in.readString();
-    }
+    }*/
 
     public static final Creator<Pista> CREATOR = new Creator<Pista>() {
         @RequiresApi(api = Build.VERSION_CODES.M)

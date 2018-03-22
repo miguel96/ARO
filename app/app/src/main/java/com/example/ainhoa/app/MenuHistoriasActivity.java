@@ -1,6 +1,7 @@
 package com.example.ainhoa.app;
 
 import android.content.Intent;
+import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ public class MenuHistoriasActivity extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         user = (User)bundle.get("user");*/
         //TODO ESTO SOLO VALE PARA LOCAL, hay que usar los intents de arriba.
-        user=new User();
+        user=new User(Parcel.obtain());
         //TODO Pasar el Id de la historia clickada.
         ListView listView = findViewById(R.id.listHistorias);
         ArrayList<String> historias = user.getHistorias();
@@ -40,8 +41,8 @@ public class MenuHistoriasActivity extends AppCompatActivity {
                 //Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MenuHistoriasActivity.this, HistoriaActivity.class);
                 //TODO NO HAY QUE MANDAR UNA HISTORIA NUEVA, SINO LA SELECCIONADA MANDANDO PETICION AL SERVIDOR CON EL IDHISTORIA SELECCIONADO.
-
-                intent.putExtra("user",(Parcelable) user);
+                //(Parcelable) user;
+                intent.putExtra("user",(Parcelable)user);
                 startActivity(intent);
             }
         });

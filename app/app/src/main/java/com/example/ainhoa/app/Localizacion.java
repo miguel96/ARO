@@ -9,15 +9,15 @@ public class Localizacion implements Parcelable{
     private double latitud;
     private double longitud;
 
-    public Localizacion(){
+    public Localizacion(Parcel in){
         latitud = 32.1;
         longitud = 37.4;
     }
 
-    protected Localizacion(Parcel in) {
+    /*protected Localizacion(Parcel in) {
         latitud = in.readDouble();
         longitud = in.readDouble();
-    }
+    }*/
 
     public static final Creator<Localizacion> CREATOR = new Creator<Localizacion>() {
         @Override

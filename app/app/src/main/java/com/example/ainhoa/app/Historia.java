@@ -1,7 +1,9 @@
 package com.example.ainhoa.app;
 
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.RequiresApi;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,26 +20,28 @@ public class Historia implements Parcelable{
     private String propietario;
     private ArrayList<Pista> pistas;
 
-    public Historia(){
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public Historia(Parcel in){
         titulo = "Asesinato";
         idHistoria = "La historia";
         descripcion = "Un asesino anda suelto por las calles de Pamplona";
         propietario = "Ruben";
-        pistas = new ArrayList<Pista>();
+        pistas = new ArrayList<>();
         for(int i=0;i<5;i++)
-            pistas.add(new Pista(i));
+            pistas.add(new Pista(in));
     }
 
-    protected Historia(Parcel in){
+    /*protected Historia(Parcel in){
         titulo = in.readString();
         idHistoria = in.readString();
         descripcion = in.readString();
         propietario = in.readString();
         in.readTypedList(pistas,Pista.CREATOR);
-    }
+    }*/
 
     public static final Creator<Historia> CREATOR = new Creator<Historia>(){
 
+        @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
         public Historia createFromParcel(Parcel parcel) {
             return new Historia(parcel);
