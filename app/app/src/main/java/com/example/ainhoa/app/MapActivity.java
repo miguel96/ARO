@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -30,6 +31,7 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerMode;
 import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerPlugin;
+import com.mapbox.mapboxsdk.style.layers.Layer;
 import com.mapbox.services.android.location.LostLocationEngine;
 import com.mapbox.services.android.telemetry.location.LocationEngine;
 import com.mapbox.services.android.telemetry.location.LocationEngineListener;
@@ -52,9 +54,12 @@ public class MapActivity extends AppCompatActivity {
     private Location originLocation;
     private LocationManager locationManager;
     private LocationListener locationListener;
-    private double latitud,longitud;
+    private double latitud, longitud;
     private Historia historia;
+    private boolean movimientoCamara = false;
     private MarkerOptions markerOptions;
+    private Marker marker;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +71,14 @@ public class MapActivity extends AppCompatActivity {
         Intent intent = getIntent();
         //getParcelable
         //progreso = (ProgresoHistoria)intent.getParcelableExtra("progresoHistoria");
-        historia = (Historia)intent.getParcelableExtra("historia");
+        historia = (Historia) intent.getParcelableExtra("historia");
 
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.access_token));
-        final Icon icon = IconFactory.getInstance(MapActivity.this).fromResource(R.drawable.marker_persona);;
+        final Icon icon = IconFactory.getInstance(MapActivity.this).fromResource(R.drawable.marker_persona);
+
         markerOptions = new MarkerOptions()
                 .icon(icon);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -81,12 +87,13 @@ public class MapActivity extends AppCompatActivity {
             public void onLocationChanged(Location location) {
                 latitud = location.getLatitude();
                 longitud = location.getLongitude();
-                if(map!=null) {
-                    markerOptions.position(new LatLng(latitud, longitud));
 
-
-                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
+                if (map != null) {
+                    if (!movimientoCamara)
+                        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitud, longitud)));
+                    marker.setPosition(new LatLng(latitud,longitud));
                 }
+                movimientoCamara = true;
             }
 
             @Override
@@ -108,18 +115,23 @@ public class MapActivity extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
-            return;
+                return;
         }
-        locationManager.requestLocationUpdates("gps", 10, 0, locationListener);
+
+        latitud = locationManager.getLastKnownLocation("gps").getLatitude();
+        longitud = locationManager.getLastKnownLocation("gps").getLongitude();
+        locationManager.requestLocationUpdates("gps", 0, 0, locationListener);
 
         // Add user location to the map
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
+
                 map = mapboxMap;
-                map.addMarker(markerOptions
-                        .position(new LatLng(latitud, longitud)));
-                mapboxMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
+                marker = map.addMarker(markerOptions
+                        .position(new LatLng(latitud, longitud))
+                        .title("Mi ubicación"));
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
             }
         });
 
@@ -218,4 +230,8 @@ public class MapActivity extends AppCompatActivity {
         mapView.onSaveInstanceState(outState);
     }
 
+    public void moverCamara(View view){
+        if (map!=null)
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
+    }
 }
