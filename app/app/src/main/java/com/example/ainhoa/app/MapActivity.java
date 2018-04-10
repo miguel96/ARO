@@ -59,6 +59,7 @@ public class MapActivity extends AppCompatActivity {
     private boolean movimientoCamara = false;
     private MarkerOptions markerOptions;
     private Marker marker;
+    ObjectsApplication objects;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -68,12 +69,9 @@ public class MapActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_map);
 
-        Intent intent = getIntent();
-        //getParcelable
-        //progreso = (ProgresoHistoria)intent.getParcelableExtra("progresoHistoria");
-        historia = (Historia) intent.getParcelableExtra("historia");
-
-
+        objects = (ObjectsApplication) getApplication();
+        historia = objects.historia;
+        progreso = objects.usuario.getProgresoHistoria(historia.getIdHistoria());
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.access_token));
@@ -91,7 +89,7 @@ public class MapActivity extends AppCompatActivity {
                 if (map != null) {
                     if (!movimientoCamara)
                         map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitud, longitud)));
-                    marker.setPosition(new LatLng(latitud,longitud));
+                    marker.setPosition(new LatLng(latitud, longitud));
                 }
                 movimientoCamara = true;
             }
@@ -115,12 +113,13 @@ public class MapActivity extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
-                return;
+            return;
         }
-
-        latitud = locationManager.getLastKnownLocation("gps").getLatitude();
-        longitud = locationManager.getLastKnownLocation("gps").getLongitude();
-        locationManager.requestLocationUpdates("gps", 0, 0, locationListener);
+        if (locationManager.getLastKnownLocation("gps")!=null){
+            latitud = locationManager.getLastKnownLocation("gps").getLatitude();
+            longitud = locationManager.getLastKnownLocation("gps").getLongitude();
+        }
+        locationManager.requestLocationUpdates("gps", 1, 0, locationListener);
 
         // Add user location to the map
         mapView.getMapAsync(new OnMapReadyCallback() {
@@ -143,7 +142,7 @@ public class MapActivity extends AppCompatActivity {
         buttonPistaMapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String pista = "Pista actual";
+                String pista = historia.getPistas().get(progreso.getPistasCompletadas().size()).getID();
                 txtpista.setVisibility(View.VISIBLE);
                 txtpista.setText(pista);
                 final Button btnCierraPista = findViewById(R.id.btnClosePistaAct);

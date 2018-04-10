@@ -31,13 +31,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private static final int RC_SIGN_IN = 9001;
     Retrofit retrofit;
-
+    ObjectsApplication objetos;
     private GoogleSignInClient mGoogleSignInClient;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        objetos = (ObjectsApplication)getApplication();
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         String serverClientId = getString(R.string.server_client_id);
@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(Call<User> call, Response<User> userInfo) {
                 System.out.println(userInfo.body().toString());
                 Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
-                intent.putExtra("user", userInfo.body());
+                objetos.usuario = userInfo.body();
                 startActivity(intent);
             }
 

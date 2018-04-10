@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HistoriaActivity extends AppCompatActivity {
     Retrofit retrofit;
     HistoriaService historiaService;
-
+    ObjectsApplication objects;
     ProgresoHistoria progresoHistoria;
     Historia historia;
     User user;
@@ -39,14 +39,10 @@ public class HistoriaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historia);
-
+        objects = (ObjectsApplication) getApplication();
         TextView tituloHistoria = findViewById(R.id.txtTituloHistoria);
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-
-        historia = new Historia(Parcel.obtain());
-        user = (User)bundle.getParcelable("user");
-        System.out.println(user.get_id());
+        user = objects.usuario;
+        historia = objects.historia;
         /*try {
             getHistoria();
         } catch (IOException e) {
@@ -64,8 +60,7 @@ public class HistoriaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HistoriaActivity.this, MapActivity.class);
 
-                //intent.putExtra("progresoHistoria",user.getProgresoHistoria(historia.getIdHistoria()));
-                intent.putExtra("historia",historia);
+
                 startActivity(intent);
             }
         });

@@ -11,33 +11,17 @@ import java.util.HashMap;
  * Created by ainhoa on 31/01/18.
  */
 
-public class User implements Parcelable{
+public class User{
     private String _id;
     private ArrayList<ProgresoHistoria> progresoHistorias;
 
-    public User(Parcel in){
+    public User(){
         _id = "Ruben";
         progresoHistorias = new ArrayList<>();
 
-        progresoHistorias.add(new ProgresoHistoria(in));
+        progresoHistorias.add(new ProgresoHistoria());
     }
-    /*
-    public User(Parcel in) {
-        _id=in.readString();
-        progresoHistorias= in.createTypedArrayList(ProgresoHistoria.CREATOR);
-    }*/
 
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[0];
-        }
-    };
     public ArrayList<String> getHistorias(){
         ArrayList<String> historias = new ArrayList<String>();
         for(int i=0;i<progresoHistorias.size();i++){
@@ -59,17 +43,6 @@ public class User implements Parcelable{
             if(this.progresoHistorias.get(i).getIdHistoria().equals(idHistoria))
                 return this.progresoHistorias.get(i);
         return null;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(_id);
-        parcel.writeTypedList(progresoHistorias);
     }
 
     @Override

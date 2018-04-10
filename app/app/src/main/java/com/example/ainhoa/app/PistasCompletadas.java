@@ -10,33 +10,16 @@ import java.util.HashMap;
  * Created by ainhoa on 31/01/18.
  */
 
-public class PistasCompletadas implements Parcelable{
+public class PistasCompletadas{
 
     private String idPista;
     private Date fechaCompletada;
 
-    public PistasCompletadas(Parcel in){
-        this.idPista = "Pista";
+    public PistasCompletadas(int i){
+        this.idPista = "Pista "+i;
         this.fechaCompletada = new Date();
-        System.out.println("Creando pista completada");
     }
-    /*
-    protected PistasCompletadas(Parcel in) {
-        idPista = in.readString();
-        fechaCompletada= (Date) in.readSerializable();
-    }*/
 
-    public static final Creator<PistasCompletadas> CREATOR = new Creator<PistasCompletadas>() {
-        @Override
-        public PistasCompletadas createFromParcel(Parcel in) {
-            return new PistasCompletadas(in);
-        }
-
-        @Override
-        public PistasCompletadas[] newArray(int size) {
-            return new PistasCompletadas[size];
-        }
-    };
 
     public String getIdPista(){
         return this.idPista;
@@ -46,16 +29,6 @@ public class PistasCompletadas implements Parcelable{
         return this.fechaCompletada;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(idPista);
-        parcel.writeSerializable(fechaCompletada);
-    }
 
     @Override
     public String toString() {
