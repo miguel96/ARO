@@ -20,10 +20,24 @@
         android:id="@+id/btnPistaAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ver Pista"
-        android:layout_centerHorizontal="true"
 
-        />
+        android:layout_alignLeft="@+id/txtPistaAct"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/txtPistaAct"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="Ver Pista" />
+
+    <Button
+        android:id="@+id/btnResolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_toStartOf="@+id/imageButton"
+        android:text="Resolver" />
+
     <TextView
         android:id="@+id/txtPistaAct"
         android:visibility="invisible"
@@ -41,15 +55,15 @@
         android:layout_marginRight="50px"
         android:layout_marginLeft="50px"
         />
+
     <Button
         android:id="@+id/btnClosePistaAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="X"
+        android:layout_below="@+id/txtPistaAct"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/txtPistaAct"
-        android:visibility="invisible"
-        />
+        android:text="X"
+        android:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/imageButton"

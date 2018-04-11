@@ -3,7 +3,6 @@ package com.example.ainhoa.app;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -17,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Icon;
@@ -29,21 +27,14 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
-import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerMode;
 import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerPlugin;
-import com.mapbox.mapboxsdk.style.layers.Layer;
-import com.mapbox.services.android.location.LostLocationEngine;
 import com.mapbox.services.android.telemetry.location.LocationEngine;
-import com.mapbox.services.android.telemetry.location.LocationEngineListener;
-import com.mapbox.services.android.telemetry.location.LocationEnginePriority;
-import com.mapbox.services.android.telemetry.permissions.PermissionsListener;
 import com.mapbox.services.android.telemetry.permissions.PermissionsManager;
-
-import java.util.List;
 
 
 public class MapActivity extends AppCompatActivity {
 
+    public double radioToleranciaPistaEnMetros = 10;
     private MapView mapView;
     private ProgresoHistoria progreso;
     // variables for adding location layer
@@ -54,7 +45,7 @@ public class MapActivity extends AppCompatActivity {
     private Location originLocation;
     private LocationManager locationManager;
     private LocationListener locationListener;
-    private double latitud, longitud;
+    private double miLatitud, miLongitud;
     private Historia historia;
     private boolean movimientoCamara = false;
     private MarkerOptions markerOptions;
@@ -83,13 +74,13 @@ public class MapActivity extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                latitud = location.getLatitude();
-                longitud = location.getLongitude();
+                miLatitud = location.getLatitude();
+                miLongitud = location.getLongitude();
 
                 if (map != null) {
                     if (!movimientoCamara)
-                        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitud, longitud)));
-                    marker.setPosition(new LatLng(latitud, longitud));
+                        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(miLatitud, miLongitud)));
+                    marker.setPosition(new LatLng(miLatitud, miLongitud));
                 }
                 movimientoCamara = true;
             }
@@ -116,8 +107,8 @@ public class MapActivity extends AppCompatActivity {
             return;
         }
         if (locationManager.getLastKnownLocation("gps")!=null){
-            latitud = locationManager.getLastKnownLocation("gps").getLatitude();
-            longitud = locationManager.getLastKnownLocation("gps").getLongitude();
+            miLatitud = locationManager.getLastKnownLocation("gps").getLatitude();
+            miLongitud = locationManager.getLastKnownLocation("gps").getLongitude();
         }
         locationManager.requestLocationUpdates("gps", 1, 0, locationListener);
 
@@ -128,9 +119,9 @@ public class MapActivity extends AppCompatActivity {
 
                 map = mapboxMap;
                 marker = map.addMarker(markerOptions
-                        .position(new LatLng(latitud, longitud))
+                        .position(new LatLng(miLatitud, miLongitud))
                         .title("Mi ubicación"));
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(miLatitud, miLongitud), 14));
             }
         });
 
@@ -142,7 +133,12 @@ public class MapActivity extends AppCompatActivity {
         buttonPistaMapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String pista = historia.getPistas().get(progreso.getPistasCompletadas().size()).getID();
+                String pista;
+                if(progreso.getPistasCompletadas().size()<historia.getPistas().size())
+                    pista = historia.getPistas().get(progreso.getPistasCompletadas().size()).getID();
+                else
+                    pista = "Ya has completado todas las pistas, estás hecho todo un erudito";
+
                 txtpista.setVisibility(View.VISIBLE);
                 txtpista.setText(pista);
                 final Button btnCierraPista = findViewById(R.id.btnClosePistaAct);
@@ -157,6 +153,43 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
+
+        final Button buttonResolver = findViewById(R.id.btnResolver);
+        final TextView txtResolver = findViewById(R.id.txtPistaAct);
+        buttonResolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String solucion = "Escriba aqui la respuesta:";
+                double distanciaEnMetrosDeMiUbicacionALaPista;
+                Pista pistaActual = historia.getPistas().get(progreso.getPistasCompletadas().size());
+                Localizacion pistaLoc = historia.getPistas().get(progreso.getPistasCompletadas().size()).getLocalizacion();
+                if(pistaActual.getRespuesta()==null){
+                    if(pistaLoc!=null){
+                        distanciaEnMetrosDeMiUbicacionALaPista = distFrom(miLatitud,miLongitud,pistaLoc.getLatitud(),pistaLoc.getLongitud());
+
+                        if(distanciaEnMetrosDeMiUbicacionALaPista<=radioToleranciaPistaEnMetros){
+                            solucion = "Felicidades, estás en el sitio correcto, te había subestimado... ya puedes acceder a la siguiente pista!";
+                            //TODO aumentar el progreso.
+
+                        }
+                        else{
+                            solucion = "Vuelve a intentarlo, parece que no es el sitio correcto. "+distanciaEnMetrosDeMiUbicacionALaPista;
+                        }
+                    }
+                }
+                txtpista.setVisibility(View.VISIBLE);
+                txtpista.setText(solucion);
+                final Button btnCierraPista = findViewById(R.id.btnClosePistaAct);
+                btnCierraPista.setVisibility(View.VISIBLE);
+                btnCierraPista.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtpista.setVisibility(View.INVISIBLE);
+                        btnCierraPista.setVisibility(View.INVISIBLE);
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -231,6 +264,19 @@ public class MapActivity extends AppCompatActivity {
 
     public void moverCamara(View view){
         if (map!=null)
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitud, longitud), 14));
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(miLatitud, miLongitud), 14));
+    }
+
+    public static double distFrom(double lat1, double lng1, double lat2, double lng2) {
+        double earthRadius = 6371000; //meters
+        double dLat = Math.toRadians(lat2-lat1);
+        double dLng = Math.toRadians(lng2-lng1);
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+                        Math.sin(dLng/2) * Math.sin(dLng/2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        double dist = (float) (earthRadius * c);
+
+        return dist;
     }
 }

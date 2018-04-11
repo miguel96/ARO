@@ -10,8 +10,8 @@ public class Localizacion{
     private double longitud;
 
     public Localizacion(){
-        latitud = 32.1;
-        longitud = 37.4;
+        latitud = 42.831951 ;
+        longitud = -1.594986;
     }
 
 
