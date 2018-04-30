@@ -18,6 +18,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -34,11 +38,19 @@ public class HistoriaActivity extends AppCompatActivity {
     ProgresoHistoria progresoHistoria;
     Historia historia;
     User user;
+    private AdView mAdView;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historia);
+
+        MobileAds.initialize(this,
+                "ca-app-pub-3940256099942544~3347511713");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         objects = (ObjectsApplication) getApplication();
         TextView tituloHistoria = findViewById(R.id.txtTituloHistoria);
         user = objects.usuario;
