@@ -1,8 +1,11 @@
 package com.app.aro.FindKhana;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -51,6 +54,7 @@ public class MapActivity extends AppCompatActivity {
     private MarkerOptions markerOptions;
     private Marker marker;
     ObjectsApplication objects;
+    String provider;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -71,6 +75,9 @@ public class MapActivity extends AppCompatActivity {
         markerOptions = new MarkerOptions()
                 .icon(icon);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        while (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            alertaDeGPS();
+        }
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -97,20 +104,30 @@ public class MapActivity extends AppCompatActivity {
 
             @Override
             public void onProviderDisabled(String s) {
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivity(intent);
+                while (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    alertaDeGPS();
+                }
             }
         };
+
+        Criteria searchProviderCriteria = new Criteria();
+
+        searchProviderCriteria.setPowerRequirement(Criteria.POWER_LOW);
+        searchProviderCriteria.setAccuracy(Criteria.ACCURACY_COARSE);
+        searchProviderCriteria.setCostAllowed(false);
+        provider = locationManager.getBestProvider(searchProviderCriteria, true);
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
             return;
         }
-        if (locationManager.getLastKnownLocation("gps")!=null){
-            miLatitud = locationManager.getLastKnownLocation("gps").getLatitude();
-            miLongitud = locationManager.getLastKnownLocation("gps").getLongitude();
-        }
-        locationManager.requestLocationUpdates("gps", 1, 0, locationListener);
+        if (locationManager.getLastKnownLocation(provider)!=null){
+            miLatitud = locationManager.getLastKnownLocation(provider).getLatitude();
+            miLongitud = locationManager.getLastKnownLocation(provider).getLongitude();
+        }else
+            locationManager.requestSingleUpdate(provider, locationListener, null);
+        locationManager.requestLocationUpdates(provider, 1, 0, locationListener);
 
         // Add user location to the map
         mapView.getMapAsync(new OnMapReadyCallback() {
@@ -199,7 +216,7 @@ public class MapActivity extends AppCompatActivity {
             case 10:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        locationManager.requestLocationUpdates("gps", 10, 0, locationListener);
+                        locationManager.requestLocationUpdates(provider, 10, 0, locationListener);
 
                     }
         }
@@ -266,6 +283,26 @@ public class MapActivity extends AppCompatActivity {
     public void moverCamara(View view){
         if (map!=null)
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(miLatitud, miLongitud),map.getCameraPosition().zoom));
+    }
+
+
+    private void alertaDeGPS() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("El GPS del teléfono está desactivado, ¿Desea activarlo?")
+                .setCancelable(false)
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        alertaDeGPS();
+                        return;
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
     }
 
     public static double distFrom(double lat1, double lng1, double lat2, double lng2) {
