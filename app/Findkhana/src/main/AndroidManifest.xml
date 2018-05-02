@@ -37,7 +37,6 @@
         <activity android:name="com.app.aro.FindKhana.HistoriaActivity" />
         <activity android:name="com.app.aro.FindKhana.MapActivity" />
         <activity android:name="com.app.aro.FindKhana.MapAdminActivity" />
-        <activity android:name="com.app.aro.FindKhana.UserLogged"></activity>
     </application>
 
 </manifest>

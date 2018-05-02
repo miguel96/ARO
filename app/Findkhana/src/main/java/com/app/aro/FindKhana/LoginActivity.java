@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
-                Intent intent = new Intent(LoginActivity.this, UserLogged.class);
+                Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
                 objetos=(ObjectsApplication) getApplication();
                 objetos.usuario=userInfo.body();
                 startActivity(intent);
@@ -65,7 +65,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Context context = getApplicationContext();
         String googleUserId;
         googleUserId = context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).getString("googleUserId",null);
+        System.out.println("***************************************");
         System.out.println(googleUserId);
+        System.out.println("***************************************");
+
         if(googleUserId!=null) {
             loadUserInfo(googleUserId);
         } else {
@@ -137,7 +140,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 User user = userInfo.body();
                 Context context = getApplicationContext();
                 SharedPreferences.Editor editor= context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).edit();
-                editor.putString("googleUserId",user.get_id());
+                editor.putString("googleUserId",user.getGoogleId());
                 System.out.println(editor.commit());
                 startActivity(intent);
             }

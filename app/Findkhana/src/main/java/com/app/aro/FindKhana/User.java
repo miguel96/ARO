@@ -8,10 +8,12 @@ import java.util.ArrayList;
 
 public class User{
     private String _id;
+    private String googleId;
     private ArrayList<ProgresoHistoria> progresoHistorias;
 
     public User(){
         _id = "Ruben";
+        googleId="";
         progresoHistorias = new ArrayList<>();
 
         progresoHistorias.add(new ProgresoHistoria());
@@ -29,6 +31,9 @@ public class User{
         return this._id;
     }
 
+    public String getGoogleId(){
+        return this.googleId;
+    }
     public ArrayList<ProgresoHistoria> getProgresoHistoria(){
         return this.progresoHistorias;
     }
