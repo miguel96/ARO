@@ -38,9 +38,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
-
                 Intent intent = new Intent(LoginActivity.this, UserLogged.class);
-                intent.putExtra("user", userInfo.body());
+                objetos=(ObjectsApplication) getApplication();
+                objetos.usuario=userInfo.body();
                 startActivity(intent);
             }
 
@@ -60,10 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-<<<<<<< HEAD:app/Findkhana/src/main/java/com/app/aro/FindKhana/LoginActivity.java
         objetos = (ObjectsApplication)getApplication();
-=======
-
 
         Context context = getApplicationContext();
         String googleUserId;
@@ -72,7 +69,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(googleUserId!=null) {
             loadUserInfo(googleUserId);
         } else {
->>>>>>> master:app/app/src/main/java/com/example/ainhoa/app/LoginActivity.java
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         String serverClientId = getString(R.string.server_client_id);
@@ -133,21 +129,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
-<<<<<<< HEAD:app/Findkhana/src/main/java/com/app/aro/FindKhana/LoginActivity.java
                 System.out.println(userInfo.body().toString());
                 Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
                 objetos.usuario = userInfo.body();
-=======
                 // We have to save user token on sharedPreferences
-
-                Intent intent = new Intent(LoginActivity.this, UserLogged.class);
+                objetos=(ObjectsApplication) getApplication();
+                objetos.usuario=userInfo.body();
                 User user = userInfo.body();
-                intent.putExtra("user", user);
                 Context context = getApplicationContext();
                 SharedPreferences.Editor editor= context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).edit();
-                editor.putString("googleUserId",user.getGoogleId());
+                editor.putString("googleUserId",user.get_id());
                 System.out.println(editor.commit());
->>>>>>> master:app/app/src/main/java/com/example/ainhoa/app/LoginActivity.java
                 startActivity(intent);
             }
 
