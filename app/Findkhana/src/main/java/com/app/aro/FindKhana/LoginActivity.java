@@ -1,6 +1,8 @@
 package com.app.aro.FindKhana;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,10 +28,51 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     ObjectsApplication objetos;
     private GoogleSignInClient mGoogleSignInClient;
 
+    private void loadUserInfo(String id) {
+        this.retrofit=new Retrofit.Builder()
+                .baseUrl(getString(R.string.hostBasePath))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        LoginService loginService = retrofit.create(LoginService.class);
+        Call<User> call = loginService.loginUserGoogleId(new Token(id));
+        call.enqueue(new Callback<User>(){
+            @Override
+            public void onResponse(Call<User> call, Response<User> userInfo) {
+
+                Intent intent = new Intent(LoginActivity.this, UserLogged.class);
+                intent.putExtra("user", userInfo.body());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                try {
+                    throw t;
+                } catch (Throwable throwable) {
+                    throwable.printStackTrace();
+                }
+                Toast.makeText(getApplicationContext(),"Error al logearte"+call,Toast.LENGTH_SHORT);
+            }
+        });
+        Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera",Toast.LENGTH_SHORT);
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+<<<<<<< HEAD:app/Findkhana/src/main/java/com/app/aro/FindKhana/LoginActivity.java
         objetos = (ObjectsApplication)getApplication();
+=======
+
+
+        Context context = getApplicationContext();
+        String googleUserId;
+        googleUserId = context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).getString("googleUserId",null);
+        System.out.println(googleUserId);
+        if(googleUserId!=null) {
+            loadUserInfo(googleUserId);
+        } else {
+>>>>>>> master:app/app/src/main/java/com/example/ainhoa/app/LoginActivity.java
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         String serverClientId = getString(R.string.server_client_id);
@@ -41,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-
+        }
     }
 
     @Override
@@ -49,22 +92,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.sign_in_button:
                 signIn();
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
-        if(account!=null){
-            String serverAuthCode=account.getServerAuthCode();
-            // If logs and havent a server auth code we dont want to make request
-            if(serverAuthCode!=null){
-                System.out.println(serverAuthCode);
-                Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera"+account,Toast.LENGTH_SHORT);
-                sendTokenToServer(account.getServerAuthCode());
-                sendTokenToServer(account.getServerAuthCode());
-            }
         }
     }
 
@@ -106,9 +133,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
+<<<<<<< HEAD:app/Findkhana/src/main/java/com/app/aro/FindKhana/LoginActivity.java
                 System.out.println(userInfo.body().toString());
                 Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
                 objetos.usuario = userInfo.body();
+=======
+                // We have to save user token on sharedPreferences
+
+                Intent intent = new Intent(LoginActivity.this, UserLogged.class);
+                User user = userInfo.body();
+                intent.putExtra("user", user);
+                Context context = getApplicationContext();
+                SharedPreferences.Editor editor= context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).edit();
+                editor.putString("googleUserId",user.getGoogleId());
+                System.out.println(editor.commit());
+>>>>>>> master:app/app/src/main/java/com/example/ainhoa/app/LoginActivity.java
                 startActivity(intent);
             }
 
