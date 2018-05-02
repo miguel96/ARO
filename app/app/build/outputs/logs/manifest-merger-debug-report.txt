@@ -1,0 +1,379 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:17:1-39:12
+MERGED from [com.android.support:multidex:1.0.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/97f58a3fa0f448f3b9ed4bef4f77bf8a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-ui-0.9.0.aar/927db76bb076a5127aa2d109cdc089a3/AndroidManifest.xml:2:1-13:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:2:1-15:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:2:1-31:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-services:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-services-2.2.9.aar/20de0c6a9dd0abd185e6c9eb100c7d26/AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:design:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/design-27.0.0.aar/6f04127d2b5258ba58eb7887ff0500d5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.2.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-plugin-locationlayer-0.2.0.aar/cbcd6aa3ddff7a0842a064b6a349302e/AndroidManifest.xml:2:1-10:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-telemetry-2.2.9.aar/d52646bdbb181c37c87c0b255cdf0dac/AndroidManifest.xml:2:1-13:12
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:2:1-34:12
+MERGED from [com.android.support:appcompat-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.0.aar/e9ce5ab183306706c9647bf3e4a0561f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/8b3a843c6df22fdcd5363e908eaca7cc/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.8.0.aar/c827677a6fa368ba28ab0d1e53fe3075/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.8.0.aar/a92a72534ed489808211ce39f7c4e333/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/571009eb338d5ba2ca9d7c4afd500496/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:recyclerview-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.0.aar/659fcb0698cbdbff3939f85dbea83fb5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.0.aar/40c6da1a2c809dcd7738fd8bdf8f177d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/transition-27.0.0.aar/7c0f8d4f2c91a94d5e3cf2ef9cb4941e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:17:1-32:12
+MERGED from [android.arch.core:runtime:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/24c6b3117caca740f4222d404a3933ed/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-v4:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.0.aar/59b384ca2c51897e557ee4ee7751a3d6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.0.aar/e1ecd5526cec135b58706b520a49627f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.0.aar/d58c70c422333ed38482b7dcfda4d6ed/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.0.aar/569df8acca9c9d7e009eeb12bdc8fada/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.0.aar/79df4c851a84f7ecc758b6284d596834/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.0.aar/bcc0f6cfaafdc6d808957cc995375425/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/93cd4c034e2e2b6ebd81edac02ea6714/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.0.aar/30abe30d1def83903d9f704f522de801/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/miguel/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/983bd1705f4f93e5109da1439ae70508/AndroidManifest.xml:17:1-24:12
+MERGED from [com.jakewharton.timber:timber:4.5.1] /home/miguel/.gradle/caches/transforms-1/files-1.1/timber-4.5.1.aar/310de87c6f27b8e04be69620deec06fb/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/08f9b71bace090aec18ada962f203d2a/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/ef44216780475f9f201c5c68711aeb94/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/a74f4dfee4f3340c655849f3857f10de/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/81743a1a7e65d67f12b250dbb29ce224/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/e4ef7c4229e2aee152a869b73d882efb/AndroidManifest.xml:2:1-6:12
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+	package
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:1-49:12
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:5:5-79
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-services:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-services-2.2.9.aar/20de0c6a9dd0abd185e6c9eb100c7d26/AndroidManifest.xml:11:5-79
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-services:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-services-2.2.9.aar/20de0c6a9dd0abd185e6c9eb100c7d26/AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:5:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:6:22-78
+application
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:8:5-47:19
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:22:5-37:19
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-ui-0.9.0.aar/927db76bb076a5127aa2d109cdc089a3/AndroidManifest.xml:9:5-11:19
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-ui-0.9.0.aar/927db76bb076a5127aa2d109cdc089a3/AndroidManifest.xml:9:5-11:19
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:9:5-13:19
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:9:5-13:19
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:25:5-29:19
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:25:5-29:19
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:21:5-32:19
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:21:5-32:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/8b3a843c6df22fdcd5363e908eaca7cc/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/8b3a843c6df22fdcd5363e908eaca7cc/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/571009eb338d5ba2ca9d7c4afd500496/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/571009eb338d5ba2ca9d7c4afd500496/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/AndroidManifest.xml:22:5-26:19
+MERGED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:24:5-30:19
+MERGED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:24:5-30:19
+MERGED from [com.jakewharton.timber:timber:4.5.1] /home/miguel/.gradle/caches/transforms-1/files-1.1/timber-4.5.1.aar/310de87c6f27b8e04be69620deec06fb/AndroidManifest.xml:8:5-20
+MERGED from [com.jakewharton.timber:timber:4.5.1] /home/miguel/.gradle/caches/transforms-1/files-1.1/timber-4.5.1.aar/310de87c6f27b8e04be69620deec06fb/AndroidManifest.xml:8:5-20
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/08f9b71bace090aec18ada962f203d2a/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/08f9b71bace090aec18ada962f203d2a/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/ef44216780475f9f201c5c68711aeb94/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/ef44216780475f9f201c5c68711aeb94/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/a74f4dfee4f3340c655849f3857f10de/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/a74f4dfee4f3340c655849f3857f10de/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/81743a1a7e65d67f12b250dbb29ce224/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/81743a1a7e65d67f12b250dbb29ce224/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/e4ef7c4229e2aee152a869b73d882efb/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/e4ef7c4229e2aee152a869b73d882efb/AndroidManifest.xml:5:5-20
+	android:supportsRtl
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:13:9-35
+	android:label
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:11:9-41
+	android:roundIcon
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:12:9-54
+	android:icon
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:10:9-42
+	android:allowBackup
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:15:9-40
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:14:9-65
+activity#com.example.ainhoa.app.LoginActivity
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:16:9-22:20
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:16:19-48
+activity#com.example.ainhoa.app.showUsers
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:23:9-35:20
+	android:label
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:25:13-62
+	android:theme
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:26:13-56
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:24:13-38
+activity#com.example.ainhoa.app.MenuHistoriasActivity
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:36:9-42:20
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:36:19-56
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:37:9-41:25
+action#android.intent.action.MAIN
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:38:13-65
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:38:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:40:13-73
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:40:23-70
+activity#com.example.ainhoa.app.HistoriaActivity
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:43:9-54
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:43:19-51
+activity#com.example.ainhoa.app.MapActivity
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:44:9-49
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:44:19-46
+activity#com.example.ainhoa.app.MapAdminActivity
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:45:9-54
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:45:19-51
+activity#com.example.ainhoa.app.UserLogged
+ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:46:9-57
+	android:name
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:46:19-45
+uses-sdk
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:multidex:1.0.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/97f58a3fa0f448f3b9ed4bef4f77bf8a/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/97f58a3fa0f448f3b9ed4bef4f77bf8a/AndroidManifest.xml:20:5-43
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-ui-0.9.0.aar/927db76bb076a5127aa2d109cdc089a3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-ui-0.9.0.aar/927db76bb076a5127aa2d109cdc089a3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:6:5-9:51
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:6:5-9:51
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-services:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-services-2.2.9.aar/20de0c6a9dd0abd185e6c9eb100c7d26/AndroidManifest.xml:7:5-9:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-services:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-services-2.2.9.aar/20de0c6a9dd0abd185e6c9eb100c7d26/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/design-27.0.0.aar/6f04127d2b5258ba58eb7887ff0500d5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/design-27.0.0.aar/6f04127d2b5258ba58eb7887ff0500d5/AndroidManifest.xml:20:5-44
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.2.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-plugin-locationlayer-0.2.0.aar/cbcd6aa3ddff7a0842a064b6a349302e/AndroidManifest.xml:6:5-8:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.2.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-plugin-locationlayer-0.2.0.aar/cbcd6aa3ddff7a0842a064b6a349302e/AndroidManifest.xml:6:5-8:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-telemetry-2.2.9.aar/d52646bdbb181c37c87c0b255cdf0dac/AndroidManifest.xml:8:5-11:51
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-telemetry-2.2.9.aar/d52646bdbb181c37c87c0b255cdf0dac/AndroidManifest.xml:8:5-11:51
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:5:5-7:41
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:appcompat-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.0.aar/e9ce5ab183306706c9647bf3e4a0561f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.0.aar/e9ce5ab183306706c9647bf3e4a0561f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/8b3a843c6df22fdcd5363e908eaca7cc/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/8b3a843c6df22fdcd5363e908eaca7cc/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.8.0.aar/c827677a6fa368ba28ab0d1e53fe3075/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.8.0.aar/c827677a6fa368ba28ab0d1e53fe3075/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.8.0.aar/a92a72534ed489808211ce39f7c4e333/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.8.0.aar/a92a72534ed489808211ce39f7c4e333/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/571009eb338d5ba2ca9d7c4afd500496/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/571009eb338d5ba2ca9d7c4afd500496/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.0.aar/659fcb0698cbdbff3939f85dbea83fb5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.0.aar/659fcb0698cbdbff3939f85dbea83fb5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.0.aar/40c6da1a2c809dcd7738fd8bdf8f177d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.0.aar/40c6da1a2c809dcd7738fd8bdf8f177d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/transition-27.0.0.aar/7c0f8d4f2c91a94d5e3cf2ef9cb4941e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/transition-27.0.0.aar/7c0f8d4f2c91a94d5e3cf2ef9cb4941e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.core:runtime:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/24c6b3117caca740f4222d404a3933ed/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.core:runtime:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/24c6b3117caca740f4222d404a3933ed/AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-v4:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.0.aar/59b384ca2c51897e557ee4ee7751a3d6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.0.aar/59b384ca2c51897e557ee4ee7751a3d6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.0.aar/e1ecd5526cec135b58706b520a49627f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.0.aar/e1ecd5526cec135b58706b520a49627f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.0.aar/d58c70c422333ed38482b7dcfda4d6ed/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.0.aar/d58c70c422333ed38482b7dcfda4d6ed/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.0.aar/569df8acca9c9d7e009eeb12bdc8fada/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.0.aar/569df8acca9c9d7e009eeb12bdc8fada/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.0.aar/79df4c851a84f7ecc758b6284d596834/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.0.aar/79df4c851a84f7ecc758b6284d596834/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.0.aar/bcc0f6cfaafdc6d808957cc995375425/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.0.aar/bcc0f6cfaafdc6d808957cc995375425/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/93cd4c034e2e2b6ebd81edac02ea6714/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/93cd4c034e2e2b6ebd81edac02ea6714/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.0.aar/30abe30d1def83903d9f704f522de801/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.0.aar/30abe30d1def83903d9f704f522de801/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/miguel/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/983bd1705f4f93e5109da1439ae70508/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/miguel/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/983bd1705f4f93e5109da1439ae70508/AndroidManifest.xml:20:5-22:41
+MERGED from [com.jakewharton.timber:timber:4.5.1] /home/miguel/.gradle/caches/transforms-1/files-1.1/timber-4.5.1.aar/310de87c6f27b8e04be69620deec06fb/AndroidManifest.xml:6:5-43
+MERGED from [com.jakewharton.timber:timber:4.5.1] /home/miguel/.gradle/caches/transforms-1/files-1.1/timber-4.5.1.aar/310de87c6f27b8e04be69620deec06fb/AndroidManifest.xml:6:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/08f9b71bace090aec18ada962f203d2a/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/08f9b71bace090aec18ada962f203d2a/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/ef44216780475f9f201c5c68711aeb94/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/ef44216780475f9f201c5c68711aeb94/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/a74f4dfee4f3340c655849f3857f10de/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/a74f4dfee4f3340c655849f3857f10de/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/81743a1a7e65d67f12b250dbb29ce224/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/81743a1a7e65d67f12b250dbb29ce224/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/e4ef7c4229e2aee152a869b73d882efb/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/e4ef7c4229e2aee152a869b73d882efb/AndroidManifest.xml:4:5-43
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:9:9-48
+	android:targetSdkVersion
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+		ADDED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+		INJECTED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:33:9-36:110
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:35:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/AndroidManifest.xml:34:13-89
+activity#com.mapbox.services.android.navigation.ui.v5.NavigationActivity
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-ui-0.9.0.aar/927db76bb076a5127aa2d109cdc089a3/AndroidManifest.xml:10:9-100
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-ui-0.9.0.aar/927db76bb076a5127aa2d109cdc089a3/AndroidManifest.xml:10:19-97
+service#com.mapbox.services.android.navigation.v5.navigation.NavigationService
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:10:9-106
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:10:18-103
+service#com.mapbox.services.android.telemetry.service.TelemetryService
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:12:9-98
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:28:9-98
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:28:9-98
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-navigation:0.9.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/AndroidManifest.xml:12:18-95
+uses-feature#0x00020000
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:11:5-13:35
+	android:glEsVersion
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:12:9-41
+	android:required
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:13:9-32
+uses-feature#android.hardware.wifi
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:14:5-16:36
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:19:5-58
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:19:5-58
+	android:required
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:16:9-33
+		MERGED from /home/miguel/git_src/ARO/app/app/src/main/AndroidManifest.xml:14:5-16:36
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:15:9-45
+uses-feature#android.hardware.location.gps
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:17:5-19:36
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:13:5-15:36
+MERGED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:13:5-15:36
+	android:required
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:19:9-33
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:18:9-53
+uses-permission#android.permission.INTERNET
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:21:5-67
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-services:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-services-2.2.9.aar/20de0c6a9dd0abd185e6c9eb100c7d26/AndroidManifest.xml:12:5-67
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-services:2.2.9] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-services-2.2.9.aar/20de0c6a9dd0abd185e6c9eb100c7d26/AndroidManifest.xml:12:5-67
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:21:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:22:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:23:5-76
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:5.3.2] /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/AndroidManifest.xml:23:22-73
+uses-feature#android.hardware.sensor.accelerometer
+ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:9:5-11:36
+	android:required
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:11:9-33
+	android:name
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:10:9-61
+uses-feature#android.hardware.location
+ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:12:5-62
+	android:name
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:12:19-59
+uses-feature#android.hardware.telephony
+ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:16:5-18:36
+	android:required
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:18:9-33
+	android:name
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:17:9-50
+service#com.mapzen.android.lost.internal.FusedLocationProviderService
+ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:22:9-24:39
+	android:process
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:24:13-36
+	android:name
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:23:13-89
+service#com.mapzen.android.lost.internal.GeofencingIntentService
+ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:25:9-29:19
+	android:name
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:25:18-89
+intent-filter#com.mapzen.lost.action.ACTION_GEOFENCING_SERVICE
+ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:26:13-28:29
+action#com.mapzen.lost.action.ACTION_GEOFENCING_SERVICE
+ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:27:17-91
+	android:name
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:27:25-88
+service#com.mapzen.android.lost.internal.DwellIntentService
+ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:30:9-31:19
+	android:name
+		ADDED from [com.mapzen.android:lost:3.0.4] /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/AndroidManifest.xml:30:18-84
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/AndroidManifest.xml:24:13-58
+provider#android.arch.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:25:9-29:43
+	android:authorities
+		ADDED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:27:13-68
+	android:multiprocess
+		ADDED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:29:13-40
+	android:exported
+		ADDED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [android.arch.lifecycle:extensions:1.0.0] /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/AndroidManifest.xml:26:13-83

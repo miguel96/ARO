@@ -1,0 +1,100 @@
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-android/4.3.5.1/eecbb0b998e77629862a13d957d552b3be58fc4e/httpclient-android-4.3.5.1.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/07d3896bfd4cfc8689eea2e2c91774b9/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/97f58a3fa0f448f3b9ed4bef4f77bf8a/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-ui-0.9.0.aar/927db76bb076a5127aa2d109cdc089a3/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-navigation-0.9.0.aar/1864b4065e96333814f272e40509c86e/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-sdk-services/3.0.0-beta.2/cad96d1dd1e78c292d3912cf4b89750e980dfc57/mapbox-sdk-services-3.0.0-beta.2.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-java-services/2.2.9/32099854fcd364940c562d83c1394aa917faa79b/mapbox-java-services-2.2.9.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-sdk-turf/3.0.0-beta.2/6e86fa03c4931d2f51155764d8d69be1bba089ea/mapbox-sdk-turf-3.0.0-beta.2.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-sdk-geojson/3.0.0-beta.2/9b236aecdd8c240b69fa8f33a82a7ff7c59257f3/mapbox-sdk-geojson-3.0.0-beta.2.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-sdk-core/3.0.0-beta.2/e1ba313a21a9afb8aa763449280e3648cdbc7588/mapbox-sdk-core-3.0.0-beta.2.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.3.0/9e09011e9767bb76b5e27c9b8223476b93b14631/converter-gson-2.3.0.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/bcacde6a8ccedcc56c127403d26b76072fe6214d/retrofit-2.3.0.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-sdk-5.3.2.aar/176edda6a4bd4c61385233db01c164f4/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-java-geojson/2.2.9/c53f47c9fdf762ae6fd86efd056da7a1651a0fed/mapbox-java-geojson-2.2.9.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-polly/2.3.8/eb1853de960784eb2ea5bcc1dab43b42213ffefb/aws-android-sdk-polly-2.3.8.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-core/2.3.8/59f066964f4ef43fb092312f103d122f80fd4e06/aws-android-sdk-core-2.3.8.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-services-2.2.9.aar/20de0c6a9dd0abd185e6c9eb100c7d26/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/design-27.0.0.aar/6f04127d2b5258ba58eb7887ff0500d5/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-plugin-locationlayer-0.2.0.aar/cbcd6aa3ddff7a0842a064b6a349302e/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/mapbox-android-telemetry-2.2.9.aar/d52646bdbb181c37c87c0b255cdf0dac/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/lost-3.0.4.aar/581d995185c2b1e2fddbd02657f2e6be/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.0.aar/e9ce5ab183306706c9647bf3e4a0561f/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/8b3a843c6df22fdcd5363e908eaca7cc/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.8.0.aar/c827677a6fa368ba28ab0d1e53fe3075/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.8.0.aar/a92a72534ed489808211ce39f7c4e333/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/65c34b949c180ddfe5ce9caa8af53815/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/571009eb338d5ba2ca9d7c4afd500496/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/c3a96bb39d3b902ce2906456a8d27a81/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.9.1/36e71ab9e903fc4d1b4a58d80572a91d9fd60caf/logging-interceptor-3.9.1.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.9.1/84b4b7d1c4a238e7899972b7446c250691e65f1f/okhttp-3.9.1.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.0.aar/659fcb0698cbdbff3939f85dbea83fb5/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.0.aar/40c6da1a2c809dcd7738fd8bdf8f177d/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/transition-27.0.0.aar/7c0f8d4f2c91a94d5e3cf2ef9cb4941e/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/extensions-1.0.0.aar/0e0751c765feffb5e49212aed16a33fc/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/24c6b3117caca740f4222d404a3933ed/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.0.aar/59b384ca2c51897e557ee4ee7751a3d6/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.0.aar/e1ecd5526cec135b58706b520a49627f/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.0.aar/d58c70c422333ed38482b7dcfda4d6ed/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.0.aar/569df8acca9c9d7e009eeb12bdc8fada/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.0.aar/79df4c851a84f7ecc758b6284d596834/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.0.aar/bcc0f6cfaafdc6d808957cc995375425/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/93cd4c034e2e2b6ebd81edac02ea6714/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.0.aar/30abe30d1def83903d9f704f522de801/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/983bd1705f4f93e5109da1439ae70508/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.3/7d7f60c4783872861222166f6164215f8951c7b1/common-1.0.3.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.0.0/a7782471b2a0de8fec071b8094a8aaf61c46ab70/support-annotations-27.0.0.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.android.support.constraint/constraint-layout-solver/1.0.2/b9cd8fc6bd15cb915735d34535db30ece0c44603/constraint-layout-solver-1.0.2.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/timber-4.5.1.aar/310de87c6f27b8e04be69620deec06fb/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/08f9b71bace090aec18ada962f203d2a/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/ef44216780475f9f201c5c68711aeb94/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/a74f4dfee4f3340c655849f3857f10de/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/81743a1a7e65d67f12b250dbb29ce224/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/e4ef7c4229e2aee152a869b73d882efb/jars/classes.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-java-core/2.2.9/c18aa432e1830aba56d861494f131a34a0b8ce69/mapbox-java-core-2.2.9.jar(**.class)
+-injars /home/miguel/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar(**.class)
+-injars /home/miguel/git_src/ARO/app/app/build/intermediates/classes/debug(**.class)
+-outjars /home/miguel/git_src/ARO/app/app/build/intermediates/multi-dex/debug/componentClasses.jar
+
+-libraryjars /home/miguel/Android/Sdk/build-tools/26.0.2/lib/shrinkedAndroid.jar
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontnote **
+-dontwarn **
+-printconfiguration /home/miguel/git_src/ARO/app/app/build/intermediates/multi-dex/debug/components.flags
+
+
+# Referenced at /home/miguel/git_src/ARO/app/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:36
+-keep class android.support.multidex.MultiDexApplication {
+    <init>(...);
+}
+
+-keep public class * extends android.app.Instrumentation {
+    <init>();
+}
+
+-keep public class * extends android.app.Application {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.android.tools.ir.** {
+    <fields>;
+    <methods>;
+}
