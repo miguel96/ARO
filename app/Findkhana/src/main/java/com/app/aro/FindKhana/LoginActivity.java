@@ -129,7 +129,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
-                System.out.println(userInfo.body().toString());
                 Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
                 objetos.usuario = userInfo.body();
                 // We have to save user token on sharedPreferences
