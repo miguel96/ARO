@@ -14,7 +14,7 @@ public class ProgresoHistoria{
     private Date inicioHistoria;
 
     public ProgresoHistoria(){
-        idHistoria = "Asesinato en Pamplona";
+        idHistoria = "1";
         pistasCompletadas = new ArrayList<>();
     }
 
@@ -36,6 +36,6 @@ public class ProgresoHistoria{
 
     @Override
     public String toString() {
-        return "Historia:"+idHistoria+"\nStarted:"+inicioHistoria+"\n"+pistasCompletadas;
+        return "Historia:"+ idHistoria +"\nStarted:"+inicioHistoria+"\n"+pistasCompletadas;
     }
 }

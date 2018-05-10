@@ -11,13 +11,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mapbox.mapboxsdk.Mapbox;
@@ -33,6 +33,12 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerPlugin;
 import com.mapbox.services.android.telemetry.location.LocationEngine;
 import com.mapbox.services.android.telemetry.permissions.PermissionsManager;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MapActivity extends AppCompatActivity {
@@ -55,6 +61,8 @@ public class MapActivity extends AppCompatActivity {
     private Marker marker;
     ObjectsApplication objects;
     String provider;
+    Retrofit retrofit;
+    ProgresoService progresoService;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -66,7 +74,7 @@ public class MapActivity extends AppCompatActivity {
 
         objects = (ObjectsApplication) getApplication();
         historia = objects.historia;
-        progreso = objects.usuario.getProgresoHistoria(historia.getIdHistoria());
+        progreso = objects.usuario.getProgresoHistoria(historia.get_id());
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.access_token));
@@ -147,67 +155,107 @@ public class MapActivity extends AppCompatActivity {
         // ver pista
         final Button buttonPistaMapa = findViewById(R.id.btnPistaAct);
         final TextView txtpista = findViewById(R.id.txtPistaAct);
+        final TextView txtResolver = findViewById(R.id.txtPistaAct);
         buttonPistaMapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String pista;
-                if(progreso.getPistasCompletadas().size()<historia.getPistas().size())
-                    pista = historia.getPistas().get(progreso.getPistasCompletadas().size()).getID();
-                else
-                    pista = "Ya has completado todas las pistas, estás hecho todo un erudito";
-
-                txtpista.setVisibility(View.VISIBLE);
-                txtpista.setText(pista);
+                final Button buttonResolver = findViewById(R.id.btnResolver);
+                final TextView txtResolver = findViewById(R.id.txtPistaAct);
+                final EditText txtRespuesta = findViewById(R.id.textoRespuesta);
                 final Button btnCierraPista = findViewById(R.id.btnClosePistaAct);
-                btnCierraPista.setVisibility(View.VISIBLE);
-                btnCierraPista.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        txtpista.setVisibility(View.INVISIBLE);
-                        btnCierraPista.setVisibility(View.INVISIBLE);
+                if(progreso.getPistasCompletadas().size()<historia.getPistas().size()) {
+
+                    final Pista pistaActual = historia.getPistas().get(progreso.getPistasCompletadas().size());
+
+
+                    pista = historia.getPistas().get(progreso.getPistasCompletadas().size()).getTexto();
+                    txtpista.setVisibility(View.VISIBLE);
+                    txtpista.setText(pista);
+                    btnCierraPista.setVisibility(View.VISIBLE);
+                    buttonResolver.setVisibility(View.VISIBLE);
+                    buttonResolver.setEnabled(true);
+                    if(pistaActual.getRespuesta()==null){
+                        txtRespuesta.setVisibility(View.INVISIBLE);
+
+                        buttonResolver.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Localizacion pistaLoc = historia.getPistas().get(progreso.getPistasCompletadas().size()).getLocalizacion();
+
+                                String solucion;
+                                double distanciaEnMetrosDeMiUbicacionALaPista = distFrom(miLatitud, miLongitud, pistaLoc.getLatitud(), pistaLoc.getLongitud());
+
+                                if (distanciaEnMetrosDeMiUbicacionALaPista <= radioToleranciaPistaEnMetros) {
+                                    solucion = "Felicidades, estás en el sitio correcto, te había subestimado...";
+
+                                    objects.usuario.getProgresoHistoria(historia.get_id()).aumentarProgreso(pistaActual.getID());
+                                    progreso = objects.usuario.getProgresoHistoria(historia.get_id());
+                                    aumentarProgresoServidor();
+                                    if(!(progreso.getPistasCompletadas().size()<historia.getPistas().size()))
+                                        buttonResolver.setEnabled(false);
+                                } else {
+                                    solucion = "Vuelve a intentarlo, parece que no es el sitio correcto. Estás a " + (int) distanciaEnMetrosDeMiUbicacionALaPista + " metros.";
+                                }
+                                txtpista.setText(solucion);
+                            }
+                        });
+
+                    }else{
+                        txtRespuesta.setVisibility(View.VISIBLE);
+
+                        buttonResolver.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                String respuesta;
+                                if (txtRespuesta.getText().toString().equalsIgnoreCase(pistaActual.getRespuesta())) {
+                                    respuesta = "Felicidades, has acertado...";
+                                    txtRespuesta.setVisibility(View.INVISIBLE);
+                                    objects.usuario.getProgresoHistoria(historia.get_id()).aumentarProgreso(pistaActual.getID());
+                                    progreso = objects.usuario.getProgresoHistoria(historia.get_id());
+                                    if(!(progreso.getPistasCompletadas().size()<historia.getPistas().size()))
+                                        buttonResolver.setEnabled(false);
+                                    aumentarProgresoServidor();
+                                } else {
+                                    respuesta = "Oh... Has fallado, Vuelve a intentarlo.";
+                                    txtRespuesta.setText("");
+                                }
+                                txtpista.setText(respuesta);
+                            }
+                        });
                     }
-                });
-            }
-        });
 
 
-        final Button buttonResolver = findViewById(R.id.btnResolver);
-        final TextView txtResolver = findViewById(R.id.txtPistaAct);
-        buttonResolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String solucion = "Escriba aqui la respuesta:";
-                double distanciaEnMetrosDeMiUbicacionALaPista;
-                Pista pistaActual = historia.getPistas().get(progreso.getPistasCompletadas().size());
-                Localizacion pistaLoc = historia.getPistas().get(progreso.getPistasCompletadas().size()).getLocalizacion();
-                if(pistaActual.getRespuesta()==null){
-                    if(pistaLoc!=null){
-                        distanciaEnMetrosDeMiUbicacionALaPista = distFrom(miLatitud,miLongitud,pistaLoc.getLatitud(),pistaLoc.getLongitud());
 
-                        if(distanciaEnMetrosDeMiUbicacionALaPista<=radioToleranciaPistaEnMetros){
-                            solucion = "Felicidades, estás en el sitio correcto, te había subestimado... ya puedes acceder a la siguiente pista!";
-                            //TODO aumentar el progreso.
-                            objects.usuario.getProgresoHistoria(historia.getIdHistoria()).aumentarProgreso(pistaActual.getID());
-                            progreso = objects.usuario.getProgresoHistoria(historia.getIdHistoria());
-                        }
-                        else{
-                            solucion = "Vuelve a intentarlo, parece que no es el sitio correcto. Estás a "+(int)distanciaEnMetrosDeMiUbicacionALaPista +" metros.";
-                        }
-                    }
+
+
+
                 }
-                txtpista.setVisibility(View.VISIBLE);
-                txtpista.setText(solucion);
-                final Button btnCierraPista = findViewById(R.id.btnClosePistaAct);
-                btnCierraPista.setVisibility(View.VISIBLE);
+                else {
+                        pista = "Ya has completado todas las pistas, estás hecho todo un erudito";
+                        txtpista.setVisibility(View.VISIBLE);
+
+                        txtpista.setText(pista);
+                        buttonResolver.setVisibility(View.INVISIBLE);
+                        txtRespuesta.setVisibility(View.INVISIBLE);
+                }
+
+
+
+
+
                 btnCierraPista.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         txtpista.setVisibility(View.INVISIBLE);
                         btnCierraPista.setVisibility(View.INVISIBLE);
+                        buttonResolver.setVisibility(View.INVISIBLE);
+                        txtRespuesta.setVisibility(View.INVISIBLE);
                     }
                 });
             }
         });
+
     }
 
     @Override
@@ -266,6 +314,13 @@ public class MapActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(MapActivity.this, HistoriaActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
@@ -316,5 +371,25 @@ public class MapActivity extends AppCompatActivity {
         double dist = (float) (earthRadius * c);
 
         return dist;
+    }
+    private void aumentarProgresoServidor(){
+        this.retrofit=new Retrofit.Builder()
+                .baseUrl(getString(R.string.hostBasePath))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        this.progresoService = retrofit.create(ProgresoService.class);
+
+        Call<ProgresoHistoria> call = progresoService.putProgresoHistoria(objects.usuario.get_id(),historia.get_id(),progreso.getPistasCompletadas().get(progreso.getPistasCompletadas().size()-1).getIdPista());
+        call.enqueue(new Callback<ProgresoHistoria>() {
+            @Override
+            public void onResponse(Call<ProgresoHistoria> call, Response<ProgresoHistoria> response) {
+                System.out.println("Actualizado ProgresoHistoria");
+            }
+
+            @Override
+            public void onFailure(Call<ProgresoHistoria> call, Throwable t) {
+                System.out.println("No se ha actualizado ProgresoHistoria");
+            }
+        });
     }
 }

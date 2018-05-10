@@ -21,22 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignLeft="@+id/txtPistaAct"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/txtPistaAct"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
+        android:layout_centerHorizontal="true"
         android:text="Ver Pista" />
-
-    <Button
-        android:id="@+id/btnResolver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/imageButton"
-        android:layout_toStartOf="@+id/imageButton"
-        android:text="Resolver" />
 
     <TextView
         android:id="@+id/txtPistaAct"
@@ -57,12 +44,24 @@
         />
 
     <Button
+        android:id="@+id/btnResolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignEnd="@+id/textoRespuesta"
+        android:layout_alignRight="@+id/textoRespuesta"
+        android:layout_below="@+id/txtPistaAct"
+        android:text="Resolver"
+        android:visibility="invisible" />
+
+    <Button
         android:id="@+id/btnClosePistaAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textoRespuesta"
+        android:layout_alignStart="@+id/textoRespuesta"
         android:layout_below="@+id/txtPistaAct"
-        android:layout_centerHorizontal="true"
-        android:text="X"
+        android:text="Atrás"
         android:visibility="invisible" />
 
     <ImageButton
@@ -79,5 +78,18 @@
         android:contentDescription="Vuelve a tu ubicación"
         android:onClick="moverCamara"
         mapbox:srcCompat="@drawable/rsz_1mostrarubicacion" />
+
+    <EditText
+        android:id="@+id/textoRespuesta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnClosePistaAct"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        tools:text="Respuesta" />
 
 </RelativeLayout>

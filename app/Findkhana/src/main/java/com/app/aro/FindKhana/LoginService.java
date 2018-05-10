@@ -9,7 +9,7 @@ import retrofit2.http.POST;
  */
 
 public interface LoginService {
-    @POST("login/android")
+    @POST("login/auto")
     Call<User> loginUser(@Body Token token);
 
     @POST("login/android/google")

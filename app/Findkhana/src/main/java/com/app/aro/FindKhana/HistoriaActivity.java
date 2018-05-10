@@ -22,18 +22,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class HistoriaActivity extends AppCompatActivity {
-    Retrofit retrofit;
-    HistoriaService historiaService;
+
     ObjectsApplication objects;
     ProgresoHistoria progresoHistoria;
     Historia historia;
@@ -76,9 +68,8 @@ public class HistoriaActivity extends AppCompatActivity {
         // fragmentos de la historia
 
         ArrayList<String> frags = new ArrayList<String>();
-        frags.add(historia.getIdHistoria());
-        for(int i=0;i<user.getProgresoHistoria(historia.getIdHistoria()).getPistasCompletadas().size();i++){
-            frags.add(user.getProgresoHistoria(historia.getIdHistoria()).getPistasCompletadas().get(i).getIdPista());
+        for(int i = 0; i<user.getProgresoHistoria(historia.get_id()).getPistasCompletadas().size(); i++){
+            frags.add(historia.getPistas().get(i).getNombre());
         }
         //frags.add(historia.getDescripcion());
 
@@ -126,25 +117,6 @@ public class HistoriaActivity extends AppCompatActivity {
     }
 
 
-    private void getHistoria() throws IOException {
-        this.retrofit=new Retrofit.Builder()
-                .baseUrl("http://gpi2unavarra.hopto.org:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        this.historiaService = retrofit.create(HistoriaService.class);
 
-        Call<Historia> call = historiaService.getHistoriaById(this.historia.getIdHistoria(), new Callback<Historia>() {
-            @Override
-            public void onResponse(Call<Historia> call, Response<Historia> response) {
-                historia = response.body();
-            }
-
-            @Override
-            public void onFailure(Call<Historia> call, Throwable t) {
-
-            }
-        });
-
-    }
 
 }

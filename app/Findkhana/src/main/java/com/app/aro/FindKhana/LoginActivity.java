@@ -63,6 +63,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         objetos = (ObjectsApplication)getApplication();
 
         Context context = getApplicationContext();
+        //TODO Borrar
+        sendTokenToServer("auto");
+
+
         String googleUserId;
         googleUserId = context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).getString("googleUserId",null);
         System.out.println("***************************************");
@@ -137,6 +141,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // We have to save user token on sharedPreferences
                 objetos=(ObjectsApplication) getApplication();
                 objetos.usuario=userInfo.body();
+                System.out.println(objetos.usuario.toString());
                 User user = userInfo.body();
                 Context context = getApplicationContext();
                 SharedPreferences.Editor editor= context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).edit();
