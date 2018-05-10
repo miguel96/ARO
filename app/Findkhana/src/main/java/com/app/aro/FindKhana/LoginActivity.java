@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private static final int RC_SIGN_IN = 9001;
     Retrofit retrofit;
     LoginService loginService;
-    ObjectsApplication objetos;
+    ObjectsApplication objects;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "GoogleActivity";
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
-        objetos = new ObjectsApplication();
+        objects = (ObjectsApplication)getApplication();
         Context context = getApplicationContext();
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -171,7 +171,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     System.out.println("AQUI");
                     System.out.println(userInfo.body().toString());
                     Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
-                    objetos.usuario = userInfo.body();
+                    objects.usuario = userInfo.body();
                     startActivity(intent);
                     System.out.println("AHORA AQUI");
                 } else {
@@ -201,7 +201,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(userInfo.code()==200){
                     System.out.println(userInfo.body().toString());
                     Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
-                    objetos.usuario = userInfo.body();
+                    objects.usuario = userInfo.body();
                     startActivity(intent);
                 } else if(userInfo.code()==404){
                     System.out.println("Error 404");
