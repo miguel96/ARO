@@ -2,6 +2,8 @@ package com.app.aro.FindKhana;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 /**
@@ -9,9 +11,9 @@ import retrofit2.http.POST;
  */
 
 public interface LoginService {
-    @POST("login/android")
-    Call<User> loginUser(@Body Token token);
+    @GET("login/user")
+    Call<User> loginUser(@Header("Authorization") Token token);
 
-    @POST("login/android/google")
-    Call<User> loginUserGoogleId(@Body Token id);
+    @POST("login/register")
+    Call<User> registerUser(@Body  UserToRegister user);
 }

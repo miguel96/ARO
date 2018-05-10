@@ -11,10 +11,10 @@ public class ProgresoHistoria{
 
     private String idHistoria;
     private ArrayList<PistasCompletadas> pistasCompletadas;
-    private Date inicioHistoria;
+    private int inicioHistoria;
 
     public ProgresoHistoria(){
-        idHistoria = "Asesinato en Pamplona";
+        idHistoria = "1";
         pistasCompletadas = new ArrayList<>();
     }
 
@@ -26,7 +26,7 @@ public class ProgresoHistoria{
     public ArrayList<PistasCompletadas> getPistasCompletadas() {
         return this.pistasCompletadas;
     }
-    public Date getInicioHistoria(){
+    public int getInicioHistoria(){
         return this.inicioHistoria;
     }
 
@@ -36,6 +36,6 @@ public class ProgresoHistoria{
 
     @Override
     public String toString() {
-        return "Historia:"+idHistoria+"\nStarted:"+inicioHistoria+"\n"+pistasCompletadas;
+        return "Historia:"+ idHistoria +"\nStarted:"+inicioHistoria+"\n"+pistasCompletadas;
     }
 }

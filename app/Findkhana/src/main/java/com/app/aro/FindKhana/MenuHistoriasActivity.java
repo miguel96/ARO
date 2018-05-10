@@ -20,15 +20,26 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MenuHistoriasActivity extends AppCompatActivity {
     User user;
     ObjectsApplication objects;
     private AdView mAdView;
+    Retrofit retrofit;
+    HistoriaService historiaService;
+    ArrayList<String> historias;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +58,13 @@ public class MenuHistoriasActivity extends AppCompatActivity {
         comprobarGPS(manager);
 
         //TODO ESTO SOLO VALE PARA LOCAL.
-        objects.usuario=new User();
         user = objects.usuario;
+        System.out.println(user.toString());
         //TODO Pasar el Id de la historia clickada.
         ListView listView = findViewById(R.id.listHistorias);
-        ArrayList<String> historias = user.getHistorias();
+        historias = user.getHistorias();
 
+        System.out.println(historias.get(0));
         ArrayAdapter<String> adapter;
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, historias);
         listView.setAdapter(adapter);
@@ -62,10 +74,13 @@ public class MenuHistoriasActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 //Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(MenuHistoriasActivity.this, HistoriaActivity.class);
-                //TODO NO HAY QUE MANDAR UNA HISTORIA NUEVA, SINO LA SELECCIONADA MANDANDO PETICION AL SERVIDOR CON EL IDHISTORIA SELECCIONADO.
-                objects.historia = new Historia();
-                startActivity(intent);
+
+
+                try {
+                    getHistoria(i);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -142,6 +157,31 @@ public class MenuHistoriasActivity extends AppCompatActivity {
                 });
         final AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    private void getHistoria(int posicion) throws IOException {
+        this.retrofit=new Retrofit.Builder()
+                .baseUrl(getString(R.string.hostBasePath))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        this.historiaService = retrofit.create(HistoriaService.class);
+        System.out.println(historias.get(posicion));
+
+        Call<Historia> call = historiaService.getHistoriaById(historias.get(posicion));
+        call.enqueue(new Callback<Historia>() {
+            @Override
+            public void onResponse(Call<Historia> call, Response<Historia> response) {
+                objects.historia = response.body();
+                Intent intent = new Intent(MenuHistoriasActivity.this, HistoriaActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<Historia> call, Throwable t) {
+                System.out.println("Ha fallado recoger la historia.");
+            }
+        });
+
     }
 }
 

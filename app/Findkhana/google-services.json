@@ -1,0 +1,75 @@
+{
+  "project_info": {
+    "project_number": "32419272019",
+    "firebase_url": "https://busqueda-tesoro.firebaseio.com",
+    "project_id": "busqueda-tesoro",
+    "storage_bucket": "busqueda-tesoro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32419272019:android:885af0d149abe16c",
+        "android_client_info": {
+          "package_name": "com.app.aro.FindKhana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32419272019-hjopi9fp78p8r04ste2osat7cgc9fgph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.aro.FindKhana",
+            "certificate_hash": "7fde541b083effaad7d3f3a181e9f9553fe39b57"
+          }
+        },
+        {
+          "client_id": "32419272019-fpqrvjusrrafc8kuaa0rkekus7ek7crh.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "32419272019-vnn8srgqf61ge2pip24cevkgodubc3ot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.aro.FindKhana",
+            "certificate_hash": "c5e4d2962c05809cdc011edde15f9b2fc1f5d680"
+          }
+        },
+        {
+          "client_id": "32419272019-b2jb0bsr7h9l3bvegvitqaj49atfiggc.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "32419272019-v148qagtlm6ucjodqfhbq4287sdmvhhq.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "32419272019-eo3oq9osfilg6io936k329jj63qep3rq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApGFCKKkiyoH9JZ_MDUkuxVo4kQzhsBkc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32419272019-fpqrvjusrrafc8kuaa0rkekus7ek7crh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

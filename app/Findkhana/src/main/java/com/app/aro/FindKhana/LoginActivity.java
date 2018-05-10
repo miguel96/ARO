@@ -3,6 +3,9 @@ package com.app.aro.FindKhana;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +17,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,67 +37,88 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private static final int RC_SIGN_IN = 9001;
     Retrofit retrofit;
-    ObjectsApplication objetos;
+    LoginService loginService;
+    ObjectsApplication objects;
+    private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    private static final String TAG = "GoogleActivity";
 
-    private void loadUserInfo(String id) {
-        this.retrofit=new Retrofit.Builder()
-                .baseUrl(getString(R.string.hostBasePath))
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        LoginService loginService = retrofit.create(LoginService.class);
-        Call<User> call = loginService.loginUserGoogleId(new Token(id));
-        call.enqueue(new Callback<User>(){
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Snackbar.make(findViewById(R.id.layoutHistoria), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+    }
+
+    private void updateUI(FirebaseUser usuario){
+        Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
+        usuario.getIdToken(true).addOnSuccessListener(new OnSuccessListener<GetTokenResult>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> userInfo) {
-
-                Intent intent = new Intent(LoginActivity.this, UserLogged.class);
-                intent.putExtra("user", userInfo.body());
-                startActivity(intent);
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                try {
-                    throw t;
-                } catch (Throwable throwable) {
-                    throwable.printStackTrace();
-                }
-                Toast.makeText(getApplicationContext(),"Error al logearte"+call,Toast.LENGTH_SHORT);
+            public void onSuccess(GetTokenResult getTokenResult) {
+                String idToken=getTokenResult.getToken();
+                loginOrRegister(idToken);
             }
         });
-        Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera",Toast.LENGTH_SHORT);
+
     }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-<<<<<<< HEAD:app/Findkhana/src/main/java/com/app/aro/FindKhana/LoginActivity.java
-        objetos = (ObjectsApplication)getApplication();
-=======
-
-
+        FirebaseApp.initializeApp(this);
+        mAuth = FirebaseAuth.getInstance();
+        objects = (ObjectsApplication)getApplication();
         Context context = getApplicationContext();
-        String googleUserId;
-        googleUserId = context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).getString("googleUserId",null);
-        System.out.println(googleUserId);
-        if(googleUserId!=null) {
-            loadUserInfo(googleUserId);
-        } else {
->>>>>>> master:app/app/src/main/java/com/example/ainhoa/app/LoginActivity.java
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         String serverClientId = getString(R.string.server_client_id);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                //.requestEmail()
-                //.requestIdToken(getString(R.string.server_client_id))
+                .requestEmail()
+                .requestIdToken(serverClientId)
                 //.requestId()
-                .requestServerAuthCode(serverClientId, true)//TRUE force to get refresh_token all time
+                //.requestServerAuthCode(serverClientId, true)//TRUE force to get refresh_token all time
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
+
+        //Start retrofit
+        retrofit=new Retrofit.Builder()
+                .baseUrl(getString(R.string.hostBasePath))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        loginService = retrofit.create(LoginService.class);
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser!=null) {
+            updateUI(currentUser);
         }
     }
+
 
     @Override
     public void onClick(View v) {
@@ -98,7 +131,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode== RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
+            try {
+                GoogleSignInAccount account=task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch(ApiException e) {
+                Log.w("Error", "signInResult: error code="+e.getStatusCode()+"\nError: "+e.toString());
+            }
         }
     }
 
@@ -108,47 +146,69 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            //String idToken= account.getIdToken();
-            String authCode = account.getServerAuthCode();
-            sendTokenToServer(authCode);
-        } catch (ApiException e){
-            Log.w("Error", "signInResult: failed code="+e.getStatusCode()+"Error:"+e);
+    private void registerUser() {
+        FirebaseUser user =mAuth.getCurrentUser();
+        if (user != null) {
+            // Name, email address, and profile photo Url
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+            // Check if user's email is verified
+            boolean emailVerified = user.isEmailVerified();
+            String uid = user.getUid();
+            UserToRegister userToRegister=new UserToRegister(name,email,photoUrl,uid);
+            registerOnServer(userToRegister);
         }
     }
 
-    private void sendTokenToServer(String token) {
-        if(token==null){
-            System.out.println("null token");
-        }
+    private void registerOnServer(UserToRegister user) {
+        Call<User> call = loginService.registerUser(user);
+        call.enqueue(new Callback<User>(){
+            @Override
+            public void onResponse(Call<User> call, Response<User> userInfo) {
+                System.out.println("HERE");
+                if(userInfo.code()<299){
+                    System.out.println("AQUI");
+                    System.out.println(userInfo.body().toString());
+                    Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
+                    objects.usuario = userInfo.body();
+                    startActivity(intent);
+                    System.out.println("AHORA AQUI");
+                } else {
+                    System.out.println("Error"+userInfo.code());
+                }
+            }
 
-        this.retrofit=new Retrofit.Builder()
-                .baseUrl(getString(R.string.hostBasePath))
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        LoginService loginService = retrofit.create(LoginService.class);
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                try {
+                    System.out.println("ERROR ON FAILURE");
+                    throw t;
+                } catch (Throwable throwable) {
+                    throwable.printStackTrace();
+                }
+                Toast.makeText(getApplicationContext(),"Error al logearte"+call,Toast.LENGTH_SHORT);
+            }
+        });
+        Toast.makeText(getApplicationContext(),"Estás logeandote por favor espera",Toast.LENGTH_SHORT);
+    }
+
+    private void loginOrRegister(String token) {
         Call<User> call = loginService.loginUser(new Token(token));
         call.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> userInfo) {
-<<<<<<< HEAD:app/Findkhana/src/main/java/com/app/aro/FindKhana/LoginActivity.java
-                System.out.println(userInfo.body().toString());
-                Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
-                objetos.usuario = userInfo.body();
-=======
-                // We have to save user token on sharedPreferences
-
-                Intent intent = new Intent(LoginActivity.this, UserLogged.class);
-                User user = userInfo.body();
-                intent.putExtra("user", user);
-                Context context = getApplicationContext();
-                SharedPreferences.Editor editor= context.getSharedPreferences(getString(R.string.preference_google_user_id), Context.MODE_PRIVATE).edit();
-                editor.putString("googleUserId",user.getGoogleId());
-                System.out.println(editor.commit());
->>>>>>> master:app/app/src/main/java/com/example/ainhoa/app/LoginActivity.java
-                startActivity(intent);
+                if(userInfo.code()==200){
+                    System.out.println(userInfo.body().toString());
+                    Intent intent = new Intent(LoginActivity.this, MenuHistoriasActivity.class);
+                    objects.usuario = userInfo.body();
+                    startActivity(intent);
+                } else if(userInfo.code()==404){
+                    System.out.println("Error 404");
+                    registerUser();
+                } else {
+                    System.out.println("Error"+userInfo.code());
+                }
             }
 
             @Override
