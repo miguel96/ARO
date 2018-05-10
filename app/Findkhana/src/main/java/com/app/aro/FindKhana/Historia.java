@@ -3,7 +3,7 @@ package com.app.aro.FindKhana;
 import java.util.ArrayList;
 
 /**
- * Created by ainhoa on 31/01/18.
+ * Created by Ruben on 31/01/18.
  */
 
 public class Historia{

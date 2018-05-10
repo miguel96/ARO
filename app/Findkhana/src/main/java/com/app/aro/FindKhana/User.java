@@ -1,17 +1,27 @@
 package com.app.aro.FindKhana;
 
+import android.net.Uri;
+
 import java.util.ArrayList;
 
 /**
- * Created by ainhoa on 31/01/18.
+ * Created by Miguel on 31/01/18.
  */
 
 public class User{
     private String _id;
-    private String googleId;
+    private String name;
+    //private Uri photoUrl;
+    private String uid;
+    private int createdAt;
     private ArrayList<ProgresoHistoria> progresoHistoria;
 
+    public User(){
+        _id = "Ruben";
+        progresoHistoria = new ArrayList<>();
 
+        progresoHistoria.add(new ProgresoHistoria());
+    }
 
     public ArrayList<String> getHistorias(){
         ArrayList<String> historias = new ArrayList<String>();
@@ -25,12 +35,6 @@ public class User{
         return this._id;
     }
 
-    public String getGoogleId(){
-        return this.googleId;
-    }
-    public ArrayList<ProgresoHistoria> getProgresoHistoria(){
-        return this.progresoHistoria;
-    }
 
     public ProgresoHistoria getProgresoHistoria(String idHistoria){
         for(int i=0;i<this.progresoHistoria.size();i++)

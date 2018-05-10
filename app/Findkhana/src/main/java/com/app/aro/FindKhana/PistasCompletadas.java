@@ -9,11 +9,11 @@ import java.util.Date;
 public class PistasCompletadas{
 
     private String idPista;
-    private Date fechaCompletada;
+    private int fechaCompletada;
 
     public PistasCompletadas(String pista){
         this.idPista = pista;
-        this.fechaCompletada = new Date();
+        this.fechaCompletada = 1111221;
     }
 
 
@@ -21,7 +21,7 @@ public class PistasCompletadas{
         return this.idPista;
     }
 
-    public Date getFechaCompletada(){
+    public int getFechaCompletada(){
         return this.fechaCompletada;
     }
 

@@ -11,7 +11,7 @@ public class ProgresoHistoria{
 
     private String idHistoria;
     private ArrayList<PistasCompletadas> pistasCompletadas;
-    private Date inicioHistoria;
+    private int inicioHistoria;
 
     public ProgresoHistoria(){
         idHistoria = "1";
@@ -26,7 +26,7 @@ public class ProgresoHistoria{
     public ArrayList<PistasCompletadas> getPistasCompletadas() {
         return this.pistasCompletadas;
     }
-    public Date getInicioHistoria(){
+    public int getInicioHistoria(){
         return this.inicioHistoria;
     }
 
