@@ -9,18 +9,36 @@
         android:id="@+id/txtTituloHistoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="60sp"
-        />
+        android:layout_alignLeft="@+id/txtPistaHistoria"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/txtPistaHistoria"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:text="Titulo de la historia"
+        android:textSize="40sp" />
 
-    <Button
+    <TextView
+        android:id="@+id/txtDescripcionHistoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnClosePista"
+        android:layout_alignRight="@+id/btnClosePista"
+        android:layout_below="@+id/txtTituloHistoria"
+        android:layout_marginLeft="30px"
+        android:text="Descripcion de la historia"
+        android:textSize="20sp" />
+
+    <ImageButton
         android:id="@+id/btnToMapa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/adView"
-        android:layout_alignLeft="@+id/btnClosePista"
-        android:layout_alignStart="@+id/btnClosePista"
-        android:layout_marginBottom="12dp"
+        android:layout_alignLeft="@+id/txtTituloHistoria"
+        android:layout_alignStart="@+id/txtTituloHistoria"
+        android:layout_marginBottom="27dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/mapa"
         android:text="@string/mapa" />
 
 
@@ -28,7 +46,7 @@
         android:id="@+id/listPistas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtTituloHistoria"
+        android:layout_below="@+id/txtDescripcionHistoria"
         android:layout_above="@+id/btnToMapa"
         android:dividerHeight="0dp"
         android:divider="@null"

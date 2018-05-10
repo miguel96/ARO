@@ -107,6 +107,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .build();
         loginService = retrofit.create(LoginService.class);
 
+        signIn();
+
     }
 
     @Override

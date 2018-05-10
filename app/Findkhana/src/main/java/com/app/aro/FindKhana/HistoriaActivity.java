@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,20 +46,19 @@ public class HistoriaActivity extends AppCompatActivity {
 
         objects = (ObjectsApplication) getApplication();
         TextView tituloHistoria = findViewById(R.id.txtTituloHistoria);
+        TextView descripcionHistoria = findViewById(R.id.txtDescripcionHistoria);
         user = objects.usuario;
         historia = objects.historia;
         //requestUpdatesMapa();
 
         tituloHistoria.setText(historia.getTituloHistoria());
-
+        descripcionHistoria.setText(historia.getDescripcion());
         // Funciones del botón
-        final Button buttonToMapa = findViewById(R.id.btnToMapa);
+        final ImageButton buttonToMapa = findViewById(R.id.btnToMapa);
         buttonToMapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HistoriaActivity.this, MapActivity.class);
-
-
                 startActivity(intent);
             }
         });
