@@ -3,8 +3,8 @@
     <string name="access_token" translatable="false">pk.eyJ1IjoiYWluaG9hc2FudHgiLCJhIjoiY2pjdXMxeDNsMDcwZzJ3czZhMGRpZ2xubiJ9.G3GTG00jwyegbkNuxa17aA</string>
     <string name="server_client_id">32419272019-fpqrvjusrrafc8kuaa0rkekus7ek7crh.apps.googleusercontent.com</string>
     <string name="title_activity_show_users">showUsers</string>
-    <!--<string name="hostBasePath">https://gymkhana-server.herokuapp.com/</string>-->
-    <string name="hostBasePath">http://192.168.1.125:3000</string>
+    <string name="hostBasePath">https://gymkhana-server.herokuapp.com/</string>
+    <!--<string name="hostBasePath">http://192.168.1.125:3000</string>-->
     <string name="preference_google_user_id">googleUserId</string>
     <string name="mapa">MAPA</string>
     <string name="x">X</string>
