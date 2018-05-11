@@ -1,3 +1,0 @@
-# Referenced at /home/miguel/git_src/ARO/app/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:36
--keep class android.support.multidex.MultiDexApplication { <init>(...); }
-
