@@ -1,4 +1,0 @@
-#Wed Mar 21 16:06:44 CET 2018
-base.0=/home/miguel/git_src/ARO/app/app/build/intermediates/transforms/dexMerger/debug/11
-path.0=classes.dex
-renamed.0=classes.dex
