@@ -98,6 +98,12 @@ public class MapActivity extends AppCompatActivity {
                     marker.setPosition(new LatLng(miLatitud, miLongitud));
                 }
                 movimientoCamara = true;
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(new String[]{
+                            Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
+                    return;
+                }
+                locationManager.requestSingleUpdate(provider, locationListener, null);
             }
 
             @Override
