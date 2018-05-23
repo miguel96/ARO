@@ -43,7 +43,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MapActivity extends AppCompatActivity {
 
-    public double radioToleranciaPistaEnMetros = 10;
+    public double radioToleranciaPistaEnMetros = 10000;
     private MapView mapView;
     private ProgresoHistoria progreso;
     // variables for adding location layer
